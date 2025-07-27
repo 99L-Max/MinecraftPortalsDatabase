@@ -30,25 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this._dataGridView = new System.Windows.Forms.DataGridView();
             this._tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this._btnAdd = new System.Windows.Forms.Button();
             this._btnNearestPortal = new System.Windows.Forms.Button();
             this._btnRemove = new System.Windows.Forms.Button();
             this._btnEdit = new System.Windows.Forms.Button();
-            this.PortalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Biome_Overworld = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Biome_Nether = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LocationOverworld = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LocationNether = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
             this._tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -73,42 +63,37 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DarkOrange;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this._dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this._dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PortalName,
-            this.Biome_Overworld,
-            this.Biome_Nether,
-            this.LocationOverworld,
-            this.LocationNether});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this._dataGridView.EnableHeadersVisualStyles = false;
             this._dataGridView.Location = new System.Drawing.Point(12, 12);
             this._dataGridView.Name = "_dataGridView";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._dataGridView.RowHeadersVisible = false;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._dataGridView.Size = new System.Drawing.Size(910, 54);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewCellClick);
+            this._dataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnDataGridViewColumnHeaderMouseClick);
             this._dataGridView.SelectionChanged += new System.EventHandler(this.OnDataGridViewSelectionChanged);
             // 
             // _tableLayoutPanel
@@ -196,50 +181,6 @@
             this._btnEdit.UseVisualStyleBackColor = true;
             this._btnEdit.Click += new System.EventHandler(this.OnEditClick);
             // 
-            // PortalName
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PortalName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PortalName.HeaderText = "Name";
-            this.PortalName.Name = "PortalName";
-            this.PortalName.ReadOnly = true;
-            // 
-            // Biome_Overworld
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Biome_Overworld.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Biome_Overworld.HeaderText = "Overworld Biome";
-            this.Biome_Overworld.Name = "Biome_Overworld";
-            this.Biome_Overworld.ReadOnly = true;
-            this.Biome_Overworld.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Biome_Nether
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Biome_Nether.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Biome_Nether.HeaderText = "The Nether Biome";
-            this.Biome_Nether.Name = "Biome_Nether";
-            this.Biome_Nether.ReadOnly = true;
-            this.Biome_Nether.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // LocationOverworld
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.LocationOverworld.DefaultCellStyle = dataGridViewCellStyle6;
-            this.LocationOverworld.HeaderText = "Overworld XYZ";
-            this.LocationOverworld.Name = "LocationOverworld";
-            this.LocationOverworld.ReadOnly = true;
-            this.LocationOverworld.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // LocationNether
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.LocationNether.DefaultCellStyle = dataGridViewCellStyle7;
-            this.LocationNether.HeaderText = "The Nether XYZ";
-            this.LocationNether.Name = "LocationNether";
-            this.LocationNether.ReadOnly = true;
-            this.LocationNether.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -271,11 +212,6 @@
         private System.Windows.Forms.Button _btnRemove;
         private System.Windows.Forms.Button _btnEdit;
         private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PortalName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Biome_Overworld;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Biome_Nether;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LocationOverworld;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LocationNether;
     }
 }
 

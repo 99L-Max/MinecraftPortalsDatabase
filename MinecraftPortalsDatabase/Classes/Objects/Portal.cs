@@ -14,9 +14,9 @@ namespace MinecraftPortalsDatabase
             dimension == Dimension.Overworld ? LocationOverworld : LocationNether;
 
         public override string ToString() =>
-            $"{Name}.{Environment.NewLine}" +
-            $"Overworld: {LocationOverworld} ({BiomeOverworld}).{Environment.NewLine}" +
-            $"Nether: {LocationNether} ({BiomeNether}).";
+            $"{Name}{Environment.NewLine}" +
+            $"Overworld: {LocationOverworld} ({BiomeOverworld}){Environment.NewLine}" +
+            $"Nether: {LocationNether} ({BiomeNether})";
 
         public object[] ToDataGridViewRow() =>
             new object[] { Name, BiomeOverworld, BiomeNether, LocationOverworld, LocationNether };

@@ -71,6 +71,16 @@ namespace MinecraftPortalsDatabase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Dictionary_ColumnNames {
+            get {
+                object obj = ResourceManager.GetObject("Dictionary_ColumnNames", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap End_Portal {
@@ -96,16 +106,6 @@ namespace MinecraftPortalsDatabase.Properties {
         internal static System.Drawing.Bitmap Obsidian {
             get {
                 object obj = ResourceManager.GetObject("Obsidian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Polished_Blackstone_Bricks {
-            get {
-                object obj = ResourceManager.GetObject("Polished_Blackstone_Bricks", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

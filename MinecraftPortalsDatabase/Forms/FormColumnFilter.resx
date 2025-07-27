@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_btnCancel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="_btnClose.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAUCAYAAADIpHLKAAAABGdBTUEAALGPC/xhBQAACgJJREFUaEPt
         m1eOFEsQRWeBILw3QsIIPyC82A4CBOxxnk5Jp7l1O6qH9z8foczKDHPDZVY1w9HR0dHJGZ3RGW3S0cmv
@@ -166,7 +166,7 @@
         6DT+GWftotsCF7MxNHeZr4nAlg3TlPicr/4/yBmd0RnN9B8XFr5dQ2f35wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="_btnApply.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="_btnFilter.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAUCAYAAADIpHLKAAAABGdBTUEAALGPC/xhBQAACgJJREFUaEPt
         m1eOFEsQRWeBILw3QsIIPyC82A4CBOxxnk5Jp7l1O6qH9z8foczKDHPDZVY1w9HR0dHJGZ3RGW3S0cmv

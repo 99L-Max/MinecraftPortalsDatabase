@@ -58,9 +58,11 @@
     <Compile Include="Classes\Static\ControlsSetter.cs" />
     <Compile Include="Classes\Static\EnumHandler.cs" />
     <Compile Include="Classes\Static\FileHandler.cs" />
+    <Compile Include="Classes\Static\JsonManager.cs" />
     <Compile Include="Classes\Static\MathCustom.cs" />
     <Compile Include="Enums\BiomeNether.cs" />
     <Compile Include="Enums\BiomeOverworld.cs" />
+    <Compile Include="Enums\ColumnNames.cs" />
     <Compile Include="Enums\Dimension.cs" />
     <Compile Include="Forms\FormChoosingWorld.cs">
       <SubType>Form</SubType>
@@ -136,6 +138,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Dictionaries\Dictionary_ColumnNames.json" />
     <None Include="Resources\Textures\Button\Button.png" />
   </ItemGroup>
   <ItemGroup />
@@ -143,7 +146,6 @@
     <Content Include="Resources\Icons\Icon.ico" />
     <Content Include="Resources\Textures\Background\End_Portal.png" />
     <Content Include="Resources\Textures\Background\Obsidian.png" />
-    <Content Include="Resources\Textures\Background\Polished_Blackstone_Bricks.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

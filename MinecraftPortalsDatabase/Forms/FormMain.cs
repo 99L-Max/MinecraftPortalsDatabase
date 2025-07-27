@@ -1,4 +1,8 @@
-﻿using System;
+﻿using MinecraftPortalsDatabase.Properties;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
@@ -8,6 +12,7 @@ namespace MinecraftPortalsDatabase
         private readonly PortalsCollection _portals = new PortalsCollection();
         private readonly FormPortalSettings _formPortalSettings = new FormPortalSettings();
         private readonly FormNearestPortal _formNearestPortal = new FormNearestPortal();
+        private readonly DataTable _dataTable = new DataTable();
 
         private bool _selectionChanged;
 
@@ -21,8 +26,10 @@ namespace MinecraftPortalsDatabase
             _formNearestPortal.FormClosing += OnFormDialogClosing;
             _formNearestPortal.FormClosing += OnFormDialogClosing;
 
+            ControlsSetter.SetColumns(_dataGridView, _dataTable, JsonManager.GetDictionary<ColumnNames, string>(Resources.Dictionary_ColumnNames));
+
             foreach (var obj in _portals.ToDataGridView())
-                _dataGridView.Rows.Add(obj);
+                _dataTable.Rows.Add(obj);
 
             _btnNearestPortal.Enabled = !_portals.IsEmpty;
 
@@ -75,10 +82,16 @@ namespace MinecraftPortalsDatabase
                 foreach (DataGridViewRow row in _dataGridView.SelectedRows)
                     if (_portals.Remove(row.Cells[0].Value.ToString()))
                         _dataGridView.Rows.Remove(row);
-            
+
                 _btnNearestPortal.Enabled = !_portals.IsEmpty;
                 CorrectDataGridViewHeight();
             }
+        }
+
+        private void OnFilterChanged(ColumnNames columnName, IEnumerable<string> values)
+        {
+            _dataTable.DefaultView.RowFilter = values.Count() > 0 ? string.Join(" OR ", values.Select(v => $"{columnName} LIKE '%{v}%'")) : string.Empty;
+            CorrectDataGridViewHeight();
         }
 
         private void OnNearestPortalClick(object sender, EventArgs e) =>
@@ -103,10 +116,31 @@ namespace MinecraftPortalsDatabase
             }
             else if (_portals.Add(portal))
             {
-                _dataGridView.Rows.Add(portal.ToDataGridViewRow());
+                _dataTable.Rows.Add(portal.ToDataGridViewRow());
                 _formPortalSettings.Hide();
                 _btnNearestPortal.Enabled = true;
                 CorrectDataGridViewHeight();
+            }
+        }
+
+        private void OnDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var nameColumn = (ColumnNames)e.ColumnIndex;
+            if (nameColumn == ColumnNames.Name || nameColumn == ColumnNames.BiomeOverworld || nameColumn == ColumnNames.BiomeNether)
+            {
+                var form = new FormColumnFilter(nameColumn, _dataTable.AsEnumerable().Select(x => $"{x[$"{nameColumn}"]}").Distinct().ToArray());
+                form.ValuesSelected += OnFilterChanged;
+                form.FormClosing += OnFormColumnFilterClosing;
+                form.ShowDialog();
+            }
+        }
+
+        private void OnFormColumnFilterClosing(object sender, FormClosingEventArgs e)
+        {
+            if (sender is FormColumnFilter form)
+            {
+                form.ValuesSelected -= OnFilterChanged;
+                form.FormClosing -= OnFormColumnFilterClosing;
             }
         }
 
@@ -123,13 +157,13 @@ namespace MinecraftPortalsDatabase
             _selectionChanged = true;
         }
 
+        private void OnFormSizeChanged(object sender, EventArgs e) =>
+            CorrectDataGridViewHeight();
+
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
             FileHandler.CreateSaveDirectory();
             _portals.Save();
         }
-
-        private void OnFormSizeChanged(object sender, EventArgs e) =>
-            CorrectDataGridViewHeight();
     }
 }

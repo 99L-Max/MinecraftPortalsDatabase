@@ -16,11 +16,7 @@ namespace MinecraftPortalsDatabase
 
         public static Portal[] ReadPortals(string path)
         {
-            try
-            {
-                var json = File.ReadAllText(path);
-                return JsonConvert.DeserializeObject<Portal[]>(json);
-            }
+            try { return JsonConvert.DeserializeObject<Portal[]>(File.ReadAllText(path)); }
             catch (Exception) { }
             return null;
         }

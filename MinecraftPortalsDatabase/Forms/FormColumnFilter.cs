@@ -10,11 +10,11 @@ namespace MinecraftPortalsDatabase
         public readonly ColumnNames ColumnName;
         public event Action<ColumnNames, IEnumerable<string>> ValuesSelected;
 
-        public FormColumnFilter(ColumnNames columnName, string[] values)
+        public FormColumnFilter(ColumnNames columnName, IEnumerable<string> values)
         {
             InitializeComponent();
 
-            _checkedListBox.Items.AddRange(values);
+            _checkedListBox.Items.AddRange(values.OrderBy(x => x).ToArray());
             ColumnName = columnName;
         }
 

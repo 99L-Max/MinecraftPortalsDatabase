@@ -77,7 +77,7 @@ namespace MinecraftPortalsDatabase
 
         private void OnRemoveClick(object sender, EventArgs e)
         {
-            if (!_portals.IsEmpty && DialogResult.Yes == MessageBox.Show("Do you really want to delete the selected portals?\nThis action cannot be undone.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            if (!_portals.IsEmpty && DialogResult.Yes == MessageBox.Show("Do you want to delete the selected portals?\nThis action cannot be undone.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 foreach (DataGridViewRow row in _dataGridView.SelectedRows)
                     if (_portals.Remove(row.Cells[0].Value.ToString()))
@@ -128,7 +128,7 @@ namespace MinecraftPortalsDatabase
             var nameColumn = (ColumnNames)e.ColumnIndex;
             if (nameColumn == ColumnNames.Name || nameColumn == ColumnNames.BiomeOverworld || nameColumn == ColumnNames.BiomeNether)
             {
-                var form = new FormColumnFilter(nameColumn, _dataTable.AsEnumerable().Select(x => $"{x[$"{nameColumn}"]}").Distinct().ToArray());
+                var form = new FormColumnFilter(nameColumn, _dataTable.AsEnumerable().Select(x => $"{x[$"{nameColumn}"]}").Distinct());
                 form.ValuesSelected += OnFilterChanged;
                 form.FormClosing += OnFormColumnFilterClosing;
                 form.ShowDialog();

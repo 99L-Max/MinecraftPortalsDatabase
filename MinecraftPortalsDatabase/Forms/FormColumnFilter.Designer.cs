@@ -69,6 +69,7 @@
             // 
             this._checkedListBox.BackColor = System.Drawing.Color.Black;
             this._checkedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._checkedListBox.CheckOnClick = true;
             this._checkedListBox.ForeColor = System.Drawing.Color.White;
             this._checkedListBox.FormattingEnabled = true;
             this._checkedListBox.Items.AddRange(new object[] {

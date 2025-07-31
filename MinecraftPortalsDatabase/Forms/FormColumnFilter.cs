@@ -10,11 +10,13 @@ namespace MinecraftPortalsDatabase
         public readonly ColumnNames ColumnName;
         public event Action<ColumnNames, IEnumerable<string>> ValuesSelected;
 
-        public FormColumnFilter(ColumnNames columnName, IEnumerable<string> values)
+        public FormColumnFilter(ColumnNames columnName, Dictionary<string, bool> items)
         {
             InitializeComponent();
 
-            _checkedListBox.Items.AddRange(values.OrderBy(x => x).ToArray());
+            foreach (var item in items.OrderBy(x => x.Key))
+                _checkedListBox.Items.Add(item.Key, item.Value);
+
             ColumnName = columnName;
         }
 
@@ -24,12 +26,18 @@ namespace MinecraftPortalsDatabase
         private void OnCheckedListBoxItemCheck(object sender, ItemCheckEventArgs e)
         {
             if (e.Index == 0)
-            {
-                var isChecked = e.NewValue == CheckState.Checked;
-
                 for (int i = 1; i < _checkedListBox.Items.Count; i++)
-                    _checkedListBox.SetItemChecked(i, isChecked);
-            }
+                    _checkedListBox.SetItemChecked(i, e.NewValue == CheckState.Checked);
+        }
+
+        public Dictionary<string, bool> GetValues()
+        {
+            var dict = new Dictionary<string, bool>();
+
+            for (int i = 1; i < _checkedListBox.Items.Count; i++)
+                dict.Add(_checkedListBox.Items[i].ToString(), _checkedListBox.GetItemChecked(i));
+
+            return dict;
         }
     }
 }

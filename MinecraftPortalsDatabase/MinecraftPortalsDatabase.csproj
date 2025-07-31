@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Objects\DataGridViewRowFilter.cs" />
     <Compile Include="Classes\Objects\DataSaving.cs" />
     <Compile Include="Classes\Objects\Portal.cs" />
     <Compile Include="Classes\Objects\PortalsCollection.cs" />

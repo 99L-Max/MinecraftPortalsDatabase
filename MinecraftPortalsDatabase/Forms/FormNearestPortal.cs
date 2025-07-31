@@ -27,5 +27,8 @@ namespace MinecraftPortalsDatabase
 
         private void OnLocationChanged(object sender, EventArgs e) =>
             _txtResult.Text = string.Empty;
+
+        public void ClearText() =>
+            _txtResult.Text = string.Empty;
     }
 }

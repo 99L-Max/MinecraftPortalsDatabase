@@ -1,6 +1,6 @@
 ﻿namespace MinecraftPortalsDatabase
 {
-    partial class FormMain
+    partial class FormDatabasePortals
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDatabasePortals));
             this._dataGridView = new System.Windows.Forms.DataGridView();
             this._tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this._btnClearFilters = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             this._dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DarkOrange;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -72,26 +72,28 @@
             this._dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this._dataGridView.EnableHeadersVisualStyles = false;
-            this._dataGridView.Location = new System.Drawing.Point(12, 12);
+            this._dataGridView.Location = new System.Drawing.Point(15, 14);
+            this._dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this._dataGridView.Name = "_dataGridView";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this._dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._dataGridView.RowHeadersVisible = false;
+            this._dataGridView.RowTemplate.Height = 35;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(910, 54);
+            this._dataGridView.Size = new System.Drawing.Size(1153, 66);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewCellClick);
             this._dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnEditClick);
@@ -114,11 +116,12 @@
             this._tableLayoutPanel.Controls.Add(this._btnNearestPortal, 3, 0);
             this._tableLayoutPanel.Controls.Add(this._btnRemove, 2, 0);
             this._tableLayoutPanel.Controls.Add(this._btnEdit, 1, 0);
-            this._tableLayoutPanel.Location = new System.Drawing.Point(12, 402);
+            this._tableLayoutPanel.Location = new System.Drawing.Point(15, 690);
+            this._tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this._tableLayoutPanel.Name = "_tableLayoutPanel";
             this._tableLayoutPanel.RowCount = 1;
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._tableLayoutPanel.Size = new System.Drawing.Size(910, 47);
+            this._tableLayoutPanel.Size = new System.Drawing.Size(1153, 57);
             this._tableLayoutPanel.TabIndex = 5;
             // 
             // _btnClearFilters
@@ -130,9 +133,10 @@
             this._btnClearFilters.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnClearFilters.ForeColor = System.Drawing.Color.Red;
             this._btnClearFilters.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnClearFilters.Location = new System.Drawing.Point(731, 3);
+            this._btnClearFilters.Location = new System.Drawing.Point(924, 4);
+            this._btnClearFilters.Margin = new System.Windows.Forms.Padding(4);
             this._btnClearFilters.Name = "_btnClearFilters";
-            this._btnClearFilters.Size = new System.Drawing.Size(176, 41);
+            this._btnClearFilters.Size = new System.Drawing.Size(225, 49);
             this._btnClearFilters.TabIndex = 5;
             this._btnClearFilters.Text = "Clear the filters";
             this._btnClearFilters.UseVisualStyleBackColor = true;
@@ -146,9 +150,10 @@
             this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnAdd.ForeColor = System.Drawing.Color.White;
             this._btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnAdd.Location = new System.Drawing.Point(3, 3);
+            this._btnAdd.Location = new System.Drawing.Point(4, 4);
+            this._btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this._btnAdd.Name = "_btnAdd";
-            this._btnAdd.Size = new System.Drawing.Size(176, 41);
+            this._btnAdd.Size = new System.Drawing.Size(222, 49);
             this._btnAdd.TabIndex = 1;
             this._btnAdd.Text = "Add";
             this._btnAdd.UseVisualStyleBackColor = true;
@@ -162,9 +167,10 @@
             this._btnNearestPortal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnNearestPortal.ForeColor = System.Drawing.Color.White;
             this._btnNearestPortal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnNearestPortal.Location = new System.Drawing.Point(549, 3);
+            this._btnNearestPortal.Location = new System.Drawing.Point(694, 4);
+            this._btnNearestPortal.Margin = new System.Windows.Forms.Padding(4);
             this._btnNearestPortal.Name = "_btnNearestPortal";
-            this._btnNearestPortal.Size = new System.Drawing.Size(176, 41);
+            this._btnNearestPortal.Size = new System.Drawing.Size(222, 49);
             this._btnNearestPortal.TabIndex = 2;
             this._btnNearestPortal.Text = "The nearest portal";
             this._btnNearestPortal.UseVisualStyleBackColor = true;
@@ -178,9 +184,10 @@
             this._btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnRemove.ForeColor = System.Drawing.Color.White;
             this._btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnRemove.Location = new System.Drawing.Point(367, 3);
+            this._btnRemove.Location = new System.Drawing.Point(464, 4);
+            this._btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this._btnRemove.Name = "_btnRemove";
-            this._btnRemove.Size = new System.Drawing.Size(176, 41);
+            this._btnRemove.Size = new System.Drawing.Size(222, 49);
             this._btnRemove.TabIndex = 3;
             this._btnRemove.Text = "Remove";
             this._btnRemove.UseVisualStyleBackColor = true;
@@ -194,29 +201,31 @@
             this._btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnEdit.ForeColor = System.Drawing.Color.White;
             this._btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnEdit.Location = new System.Drawing.Point(185, 3);
+            this._btnEdit.Location = new System.Drawing.Point(234, 4);
+            this._btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this._btnEdit.Name = "_btnEdit";
-            this._btnEdit.Size = new System.Drawing.Size(176, 41);
+            this._btnEdit.Size = new System.Drawing.Size(222, 49);
             this._btnEdit.TabIndex = 4;
             this._btnEdit.Text = "Edit";
             this._btnEdit.UseVisualStyleBackColor = true;
             this._btnEdit.Click += new System.EventHandler(this.OnEditClick);
             // 
-            // FormMain
+            // FormDatabasePortals
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.End_Portal;
-            this.ClientSize = new System.Drawing.Size(934, 461);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this._tableLayoutPanel);
             this.Controls.Add(this._dataGridView);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.MinimumSize = new System.Drawing.Size(950, 500);
-            this.Name = "FormMain";
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
+            this.Name = "FormDatabasePortals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Location of Portals";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.SizeChanged += new System.EventHandler(this.OnFormSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();

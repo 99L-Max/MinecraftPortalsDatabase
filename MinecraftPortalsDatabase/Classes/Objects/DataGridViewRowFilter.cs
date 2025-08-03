@@ -29,7 +29,7 @@ namespace MinecraftPortalsDatabase
         {
             if (!_filters.ContainsKey(columnName)) return;
             _filters[columnName] = values.Count() > 0 ? string.Join(" OR ", values.Select(v => $"{columnName} = '{v}'")) : string.Empty;
-            
+
             Filter = string.Join(" AND ", _filters.Values.Where(x => x != string.Empty).Select(x => $"({x})"));
             FilterChanged?.Invoke(Filter);
         }
@@ -49,14 +49,12 @@ namespace MinecraftPortalsDatabase
         {
             if (_columnCheckedValues.ContainsKey(columnName))
             {
-                var distinctValues = values.Distinct();
+                var dict = _columnCheckedValues[columnName];
+                var keysSet = new HashSet<string>(values);
+                var keysToRemove = dict.Keys.Where(k => !keysSet.Contains(k)).ToArray();
 
-                foreach (var value in distinctValues)
-                    _columnCheckedValues[columnName].Remove(value);
-
-                foreach (var value in distinctValues)
-                    if (!_columnCheckedValues[columnName].ContainsKey(value))
-                        _columnCheckedValues[columnName].Add(value, true);
+                foreach (var key in keysSet) if (!dict.ContainsKey(key)) dict.Add(key, true);
+                foreach (var key in keysToRemove) dict.Remove(key);
             }
         }
 
@@ -74,7 +72,7 @@ namespace MinecraftPortalsDatabase
 
         public void Clear()
         {
-            foreach (var key in _filters.Keys) _filters[key] = string.Empty;
+            foreach (var key in FilterableColumns) _filters[key] = string.Empty;
             Filter = string.Empty;
             FilterChanged?.Invoke(string.Empty);
         }

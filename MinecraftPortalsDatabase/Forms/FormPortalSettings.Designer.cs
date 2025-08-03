@@ -65,10 +65,10 @@
             this._numOverworldX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._numOverworldX.Dock = System.Windows.Forms.DockStyle.Fill;
             this._numOverworldX.ForeColor = System.Drawing.Color.White;
-            this._numOverworldX.Location = new System.Drawing.Point(81, 64);
-            this._numOverworldX.Margin = new System.Windows.Forms.Padding(6);
+            this._numOverworldX.Location = new System.Drawing.Point(105, 77);
+            this._numOverworldX.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this._numOverworldX.Name = "_numOverworldX";
-            this._numOverworldX.Size = new System.Drawing.Size(215, 29);
+            this._numOverworldX.Size = new System.Drawing.Size(274, 35);
             this._numOverworldX.TabIndex = 0;
             this._numOverworldX.ThousandsSeparator = true;
             this._numOverworldX.ValueChanged += new System.EventHandler(this.OnNumericUpDownValueChanged);
@@ -78,9 +78,10 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 58);
+            this.label1.Location = new System.Drawing.Point(4, 70);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 41);
+            this.label1.Size = new System.Drawing.Size(89, 49);
             this.label1.TabIndex = 1;
             this.label1.Text = "X:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -90,9 +91,10 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 99);
+            this.label2.Location = new System.Drawing.Point(4, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 41);
+            this.label2.Size = new System.Drawing.Size(89, 49);
             this.label2.TabIndex = 3;
             this.label2.Text = "Y:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -103,10 +105,10 @@
             this._numOverworldY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._numOverworldY.Dock = System.Windows.Forms.DockStyle.Fill;
             this._numOverworldY.ForeColor = System.Drawing.Color.White;
-            this._numOverworldY.Location = new System.Drawing.Point(81, 105);
-            this._numOverworldY.Margin = new System.Windows.Forms.Padding(6);
+            this._numOverworldY.Location = new System.Drawing.Point(105, 126);
+            this._numOverworldY.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this._numOverworldY.Name = "_numOverworldY";
-            this._numOverworldY.Size = new System.Drawing.Size(215, 29);
+            this._numOverworldY.Size = new System.Drawing.Size(274, 35);
             this._numOverworldY.TabIndex = 2;
             this._numOverworldY.Value = new decimal(new int[] {
             64,
@@ -119,9 +121,10 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 140);
+            this.label3.Location = new System.Drawing.Point(4, 168);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 41);
+            this.label3.Size = new System.Drawing.Size(89, 49);
             this.label3.TabIndex = 5;
             this.label3.Text = "Z:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,19 +135,20 @@
             this._numOverworldZ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._numOverworldZ.Dock = System.Windows.Forms.DockStyle.Fill;
             this._numOverworldZ.ForeColor = System.Drawing.Color.White;
-            this._numOverworldZ.Location = new System.Drawing.Point(81, 146);
-            this._numOverworldZ.Margin = new System.Windows.Forms.Padding(6);
+            this._numOverworldZ.Location = new System.Drawing.Point(105, 175);
+            this._numOverworldZ.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this._numOverworldZ.Name = "_numOverworldZ";
-            this._numOverworldZ.Size = new System.Drawing.Size(215, 29);
+            this._numOverworldZ.Size = new System.Drawing.Size(274, 35);
             this._numOverworldZ.TabIndex = 4;
             // 
             // _txtName
             // 
             this._txtName.BackColor = System.Drawing.Color.Black;
             this._txtName.ForeColor = System.Drawing.Color.White;
-            this._txtName.Location = new System.Drawing.Point(84, 6);
+            this._txtName.Location = new System.Drawing.Point(107, 7);
+            this._txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(462, 29);
+            this._txtName.Size = new System.Drawing.Size(587, 35);
             this._txtName.TabIndex = 6;
             // 
             // label4
@@ -152,9 +156,10 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Location = new System.Drawing.Point(15, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 24);
+            this.label4.Size = new System.Drawing.Size(84, 29);
             this.label4.TabIndex = 7;
             this.label4.Text = "Name:";
             // 
@@ -163,9 +168,10 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 181);
+            this.label6.Location = new System.Drawing.Point(4, 217);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 41);
+            this.label6.Size = new System.Drawing.Size(89, 51);
             this.label6.TabIndex = 11;
             this.label6.Text = "Biome:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -177,9 +183,10 @@
             this._cmbBiomeOverworld.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._cmbBiomeOverworld.ForeColor = System.Drawing.Color.White;
             this._cmbBiomeOverworld.FormattingEnabled = true;
-            this._cmbBiomeOverworld.Location = new System.Drawing.Point(78, 184);
+            this._cmbBiomeOverworld.Location = new System.Drawing.Point(101, 221);
+            this._cmbBiomeOverworld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._cmbBiomeOverworld.Name = "_cmbBiomeOverworld";
-            this._cmbBiomeOverworld.Size = new System.Drawing.Size(221, 32);
+            this._cmbBiomeOverworld.Size = new System.Drawing.Size(280, 37);
             this._cmbBiomeOverworld.TabIndex = 10;
             // 
             // _btnApply
@@ -190,9 +197,10 @@
             this._btnApply.FlatAppearance.BorderSize = 10;
             this._btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnApply.ForeColor = System.Drawing.Color.White;
-            this._btnApply.Location = new System.Drawing.Point(12, 269);
+            this._btnApply.Location = new System.Drawing.Point(15, 325);
+            this._btnApply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._btnApply.Name = "_btnApply";
-            this._btnApply.Size = new System.Drawing.Size(260, 38);
+            this._btnApply.Size = new System.Drawing.Size(331, 46);
             this._btnApply.TabIndex = 12;
             this._btnApply.Text = "Apply";
             this._btnApply.UseVisualStyleBackColor = true;
@@ -206,9 +214,10 @@
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnCancel.ForeColor = System.Drawing.Color.White;
-            this._btnCancel.Location = new System.Drawing.Point(286, 269);
+            this._btnCancel.Location = new System.Drawing.Point(364, 325);
+            this._btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(260, 38);
+            this._btnCancel.Size = new System.Drawing.Size(331, 46);
             this._btnCancel.TabIndex = 13;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
@@ -220,9 +229,10 @@
             this._cmbBiomeNether.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._cmbBiomeNether.ForeColor = System.Drawing.Color.White;
             this._cmbBiomeNether.FormattingEnabled = true;
-            this._cmbBiomeNether.Location = new System.Drawing.Point(305, 184);
+            this._cmbBiomeNether.Location = new System.Drawing.Point(391, 221);
+            this._cmbBiomeNether.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._cmbBiomeNether.Name = "_cmbBiomeNether";
-            this._cmbBiomeNether.Size = new System.Drawing.Size(221, 32);
+            this._cmbBiomeNether.Size = new System.Drawing.Size(280, 37);
             this._cmbBiomeNether.TabIndex = 14;
             // 
             // _tableLayoutPanel
@@ -248,7 +258,8 @@
             this._tableLayoutPanel.Controls.Add(this.label5, 2, 0);
             this._tableLayoutPanel.Controls.Add(this._chbOverworld, 1, 1);
             this._tableLayoutPanel.Controls.Add(this.label1, 0, 2);
-            this._tableLayoutPanel.Location = new System.Drawing.Point(12, 41);
+            this._tableLayoutPanel.Location = new System.Drawing.Point(15, 50);
+            this._tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._tableLayoutPanel.Name = "_tableLayoutPanel";
             this._tableLayoutPanel.RowCount = 6;
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -256,8 +267,8 @@
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this._tableLayoutPanel.Size = new System.Drawing.Size(534, 222);
+            this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this._tableLayoutPanel.Size = new System.Drawing.Size(680, 268);
             this._tableLayoutPanel.TabIndex = 16;
             // 
             // label7
@@ -265,9 +276,10 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(78, 0);
+            this.label7.Location = new System.Drawing.Point(101, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(221, 24);
+            this.label7.Size = new System.Drawing.Size(282, 29);
             this.label7.TabIndex = 21;
             this.label7.Text = "Overworld";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,10 +290,10 @@
             this._numNetherZ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._numNetherZ.Dock = System.Windows.Forms.DockStyle.Fill;
             this._numNetherZ.ForeColor = System.Drawing.Color.White;
-            this._numNetherZ.Location = new System.Drawing.Point(308, 146);
-            this._numNetherZ.Margin = new System.Windows.Forms.Padding(6);
+            this._numNetherZ.Location = new System.Drawing.Point(395, 175);
+            this._numNetherZ.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this._numNetherZ.Name = "_numNetherZ";
-            this._numNetherZ.Size = new System.Drawing.Size(220, 29);
+            this._numNetherZ.Size = new System.Drawing.Size(280, 35);
             this._numNetherZ.TabIndex = 17;
             // 
             // _numNetherY
@@ -290,15 +302,15 @@
             this._numNetherY.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._numNetherY.Dock = System.Windows.Forms.DockStyle.Fill;
             this._numNetherY.ForeColor = System.Drawing.Color.White;
-            this._numNetherY.Location = new System.Drawing.Point(308, 105);
-            this._numNetherY.Margin = new System.Windows.Forms.Padding(6);
+            this._numNetherY.Location = new System.Drawing.Point(395, 126);
+            this._numNetherY.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this._numNetherY.Maximum = new decimal(new int[] {
             319,
             0,
             0,
             0});
             this._numNetherY.Name = "_numNetherY";
-            this._numNetherY.Size = new System.Drawing.Size(220, 29);
+            this._numNetherY.Size = new System.Drawing.Size(280, 35);
             this._numNetherY.TabIndex = 17;
             this._numNetherY.Value = new decimal(new int[] {
             127,
@@ -312,10 +324,10 @@
             this._numNetherX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._numNetherX.Dock = System.Windows.Forms.DockStyle.Fill;
             this._numNetherX.ForeColor = System.Drawing.Color.White;
-            this._numNetherX.Location = new System.Drawing.Point(308, 64);
-            this._numNetherX.Margin = new System.Windows.Forms.Padding(6);
+            this._numNetherX.Location = new System.Drawing.Point(395, 77);
+            this._numNetherX.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this._numNetherX.Name = "_numNetherX";
-            this._numNetherX.Size = new System.Drawing.Size(220, 29);
+            this._numNetherX.Size = new System.Drawing.Size(280, 35);
             this._numNetherX.TabIndex = 17;
             // 
             // _chbNether
@@ -325,9 +337,10 @@
             this._chbNether.CheckState = System.Windows.Forms.CheckState.Checked;
             this._chbNether.Dock = System.Windows.Forms.DockStyle.Fill;
             this._chbNether.ForeColor = System.Drawing.Color.White;
-            this._chbNether.Location = new System.Drawing.Point(305, 27);
+            this._chbNether.Location = new System.Drawing.Point(391, 33);
+            this._chbNether.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._chbNether.Name = "_chbNether";
-            this._chbNether.Size = new System.Drawing.Size(226, 28);
+            this._chbNether.Size = new System.Drawing.Size(288, 33);
             this._chbNether.TabIndex = 19;
             this._chbNether.Text = "(automatic search)";
             this._chbNether.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -339,9 +352,10 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(305, 0);
+            this.label5.Location = new System.Drawing.Point(391, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(226, 24);
+            this.label5.Size = new System.Drawing.Size(288, 29);
             this.label5.TabIndex = 20;
             this.label5.Text = "The Nether";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -351,9 +365,10 @@
             this._chbOverworld.AutoSize = true;
             this._chbOverworld.Dock = System.Windows.Forms.DockStyle.Fill;
             this._chbOverworld.ForeColor = System.Drawing.Color.White;
-            this._chbOverworld.Location = new System.Drawing.Point(78, 27);
+            this._chbOverworld.Location = new System.Drawing.Point(101, 33);
+            this._chbOverworld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this._chbOverworld.Name = "_chbOverworld";
-            this._chbOverworld.Size = new System.Drawing.Size(221, 28);
+            this._chbOverworld.Size = new System.Drawing.Size(282, 33);
             this._chbOverworld.TabIndex = 18;
             this._chbOverworld.Text = "(automatic search)";
             this._chbOverworld.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -362,19 +377,19 @@
             // 
             // FormPortalSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.Obsidian;
             this.CancelButton = this._btnCancel;
-            this.ClientSize = new System.Drawing.Size(561, 317);
+            this.ClientSize = new System.Drawing.Size(714, 383);
             this.Controls.Add(this._tableLayoutPanel);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnApply);
             this.Controls.Add(this.label4);
             this.Controls.Add(this._txtName);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormPortalSettings";

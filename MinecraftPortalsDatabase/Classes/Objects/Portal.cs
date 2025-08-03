@@ -2,9 +2,8 @@
 
 namespace MinecraftPortalsDatabase
 {
-    class Portal
+    class Portal : DatabaseObject
     {
-        public string Name { get; set; }
         public BiomeOverworld BiomeOverworld { get; set; }
         public BiomeNether BiomeNether { get; set; }
         public Point3 LocationOverworld { get; set; }
@@ -18,10 +17,10 @@ namespace MinecraftPortalsDatabase
             $"Overworld: {LocationOverworld} ({BiomeOverworld}){Environment.NewLine}" +
             $"Nether: {LocationNether} ({BiomeNether})";
 
-        public object[] ToDataGridViewRow() =>
+        public override object[] ToDataGridViewRow() =>
             new object[] { Name, BiomeOverworld, BiomeNether, LocationOverworld, LocationNether };
 
-        public Portal GetCopy() =>
+        public override DatabaseObject GetCopy() =>
             new Portal
             {
                 Name = Name,

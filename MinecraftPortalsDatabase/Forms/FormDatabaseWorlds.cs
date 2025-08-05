@@ -14,6 +14,7 @@ namespace MinecraftPortalsDatabase
         {
             InitializeComponent();
             foreach (var obj in _worlds.ToDataGridView()) _dataGridView.Rows.Add(obj);
+            OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
         }
 
         private void ShowFormWorldSettings(string name = "")
@@ -33,7 +34,9 @@ namespace MinecraftPortalsDatabase
                 if (_worlds.Replace(name, world))
                 {
                     sender.Close();
-                    FileHandler.RenameJsonFile(name, world.Name);
+                    _worlds.Save();
+
+                    FileHandler.RenameWorldFolder(name, world.Name);
 
                     var items = world.ToDataGridViewRow();
 
@@ -44,6 +47,9 @@ namespace MinecraftPortalsDatabase
             else if (_worlds.Add(world))
             {
                 sender.Close();
+                _worlds.Save();
+
+                FileHandler.CreateWorldFolder(world.Name);
                 _dataGridView.Rows.Add(world.ToDataGridViewRow());
             }
         }
@@ -66,8 +72,9 @@ namespace MinecraftPortalsDatabase
 
                 if (_worlds.Remove(name))
                 {
+                    _worlds.Save();
                     _dataGridView.Rows.Remove(row);
-                    FileHandler.RemoveJsonFile(name);
+                    FileHandler.RemoveWorldFolder(name);
                 }
             }
         }

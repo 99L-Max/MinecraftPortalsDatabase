@@ -243,7 +243,6 @@
             this.Name = "FormDatabasePortals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Location of Portals";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
             this._tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);

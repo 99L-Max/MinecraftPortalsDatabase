@@ -10,7 +10,7 @@ namespace MinecraftPortalsDatabase
 
         public CollectionDatabaseObjects(string fileName) : base(fileName) { }
 
-        public bool IsEmpty => 
+        public bool IsEmpty =>
             _collection.Count == 0;
 
         protected void SetCollection(DatabaseObject[] databaseObjects)
@@ -26,6 +26,12 @@ namespace MinecraftPortalsDatabase
 
         public bool Add(DatabaseObject obj)
         {
+            if (obj.Name.Any(DatabaseObject.ForbiddenCharacters.Contains))
+            {
+                MessageBox.Show($"The object name cannot contain characters {DatabaseObject.ForbiddenCharacters}.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             if (obj.Name == string.Empty)
             {
                 MessageBox.Show($"The name of the object is not specified.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);

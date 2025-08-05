@@ -1,5 +1,6 @@
 ﻿using MinecraftPortalsDatabase.Properties;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -20,7 +21,7 @@ namespace MinecraftPortalsDatabase
         public FormDatabasePortals(string worldName)
         {
             InitializeComponent();
-            _portals =  new PortalsCollection(worldName);
+            _portals = new PortalsCollection(worldName);
 
             ControlsSetter.SetColumns(_dataGridView, _dataTable, JsonManager.GetDictionary<ColumnNames, string>(Resources.Dictionary_ColumnNames));
             foreach (var obj in _portals.ToDataGridView()) _dataTable.Rows.Add(obj);
@@ -29,12 +30,20 @@ namespace MinecraftPortalsDatabase
             _formPortalSettings.PortalDataChanged += OnPortalDataChanged;
             _formNearestPortal.LocationSelected += _portals.GetStringNearestPortal;
 
+            _formPortalSettings.FormClosing += OnFormDialogClosing;
             _formNearestPortal.FormClosing += OnFormDialogClosing;
-            _formNearestPortal.FormClosing += OnFormDialogClosing;
+
+            _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
             _btnNearestPortal.Enabled = !_portals.IsEmpty;
 
             OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
             UpdateFilterValues();
+        }
+
+        private IEnumerable<string> GetDataGridViewColumns(ColumnNames column)
+        {
+            for (int i = 0; i < _dataGridView.RowCount; i++)
+                yield return _dataGridView.Rows[i].Cells[$"{column}"].Value.ToString();
         }
 
         private void ShowFormPortalSettings(bool isReplacementPortal)
@@ -78,8 +87,9 @@ namespace MinecraftPortalsDatabase
                     if (_portals.Remove(row.Cells[0].Value.ToString()))
                         _dataGridView.Rows.Remove(row);
 
+                _portals.Save();
+                _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
                 _btnNearestPortal.Enabled = !_portals.IsEmpty;
-                _formNearestPortal.ClearText();
 
                 UpdateFilterValues();
             }
@@ -91,7 +101,7 @@ namespace MinecraftPortalsDatabase
         private void OnClearFiltersClick(object sender, EventArgs e) =>
             _filter.Clear();
 
-        private void OnSelectAnotherWorldClick(object sender, EventArgs e) => 
+        private void OnSelectAnotherWorldClick(object sender, EventArgs e) =>
             SelectAnotherWorld?.Invoke();
 
         private void OnPortalDataChanged(Portal portal)
@@ -104,7 +114,8 @@ namespace MinecraftPortalsDatabase
                 if (_portals.Replace(name, portal))
                 {
                     _formPortalSettings.Hide();
-                    _formNearestPortal.ClearText();
+                    _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+                    _portals.Save();
 
                     var items = portal.ToDataGridViewRow();
 
@@ -117,7 +128,8 @@ namespace MinecraftPortalsDatabase
             else if (_portals.Add(portal))
             {
                 _formPortalSettings.Hide();
-                _formNearestPortal.ClearText();
+                _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+                _portals.Save();
                 _dataTable.Rows.Add(portal.ToDataGridViewRow());
                 _btnNearestPortal.Enabled = true;
 
@@ -129,7 +141,8 @@ namespace MinecraftPortalsDatabase
         {
             _dataTable.DefaultView.RowFilter = filter;
             _btnClearFilters.Enabled = filter != string.Empty;
-            _formNearestPortal.ClearText();
+            _btnNearestPortal.Enabled = _dataGridView.RowCount > 0;
+            _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
         }
 
         private void OnDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e) =>
@@ -146,12 +159,6 @@ namespace MinecraftPortalsDatabase
             _btnRemove.Enabled = _dataGridView.SelectedRows.Count > 0;
             _btnEdit.Enabled = _dataGridView.SelectedRows.Count == 1;
             _selectionChanged = true;
-        }
-
-        private void OnFormClosing(object sender, FormClosingEventArgs e)
-        {
-            FileHandler.CreateSaveDirectory();
-            _portals.Save();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace MinecraftPortalsDatabase
         [STAThread]
         static void Main()
         {
+            FileHandler.CreateSaveDirectory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += new ThreadExceptionEventHandler(ShowErrorMessage);

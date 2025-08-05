@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
 {
     partial class FormNearestPortal : Form
     {
-        public event Func<Dimension, Point3, string> LocationSelected;
+        private HashSet<string> _namesPortals;
+
+        public event Func<HashSet<string>, Dimension, Point3, string> LocationSelected;
 
         public FormNearestPortal()
         {
@@ -22,13 +25,16 @@ namespace MinecraftPortalsDatabase
             var dimension = (Dimension)_cmbDimension.SelectedIndex;
             var location = new Point3((int)_numX.Value, (int)_numY.Value, (int)_numZ.Value);
 
-            _txtResult.Text = LocationSelected?.Invoke(dimension, location);
+            _txtResult.Text = LocationSelected?.Invoke(_namesPortals, dimension, location);
         }
 
         private void OnLocationChanged(object sender, EventArgs e) =>
             _txtResult.Text = string.Empty;
 
-        public void ClearText() =>
+        public void SetNamesPortals(IEnumerable<string> namesPortals)
+        { 
+            _namesPortals = new HashSet<string>(namesPortals);
             _txtResult.Text = string.Empty;
+        }
     }
 }

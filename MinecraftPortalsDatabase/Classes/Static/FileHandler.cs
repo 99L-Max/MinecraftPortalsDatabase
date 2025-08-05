@@ -18,26 +18,33 @@ namespace MinecraftPortalsDatabase
         public static T[] ReadArray<T>(string path)
         {
             try { return JsonConvert.DeserializeObject<T[]>(File.ReadAllText(path)); }
-            catch (Exception) { }
-            return null;
+            catch (Exception) { return null; }
         }
 
-        public static void RemoveJsonFile(string fileName)
-        {
-            var path = $@"{PathLocalAppData}\{fileName}.json";
-            if(File.Exists(path)) File.Delete(path);
-        }
+        public static void CreateWorldFolder(string worldName) =>
+            Directory.CreateDirectory($@"{PathLocalAppData}\{worldName}");
 
-        public static void RenameJsonFile(string oldFileName, string newFileName)
+        public static void RenameWorldFolder(string oldNameWorld, string newNameWorld)
         {
             try
             {
-                File.Move($@"{PathLocalAppData}\{oldFileName}.json", $@"{PathLocalAppData}\{newFileName}.json");
-                Console.WriteLine("Файл успешно переименован.");
+                Directory.Move($@"{PathLocalAppData}\{oldNameWorld}", $@"{PathLocalAppData}\{newNameWorld}");
             }
-            catch (IOException ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void RemoveWorldFolder(string worldName)
+        {
+            try
+            {
+                Directory.Delete($@"{PathLocalAppData}\{worldName}", true);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
     }

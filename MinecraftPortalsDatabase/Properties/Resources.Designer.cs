@@ -83,16 +83,6 @@ namespace MinecraftPortalsDatabase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dirt {
-            get {
-                object obj = ResourceManager.GetObject("Dirt", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap End_Portal {
             get {
                 object obj = ResourceManager.GetObject("End_Portal", resourceCulture);

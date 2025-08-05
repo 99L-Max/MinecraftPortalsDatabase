@@ -15,6 +15,8 @@ namespace MinecraftPortalsDatabase
 
         private bool _selectionChanged;
 
+        public event Action SelectAnotherWorld;
+
         public FormDatabasePortals(string worldName)
         {
             InitializeComponent();
@@ -33,7 +35,6 @@ namespace MinecraftPortalsDatabase
 
             OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
             UpdateFilterValues();
-            ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
         }
 
         private void ShowFormPortalSettings(bool isReplacementPortal)
@@ -80,7 +81,6 @@ namespace MinecraftPortalsDatabase
                 _btnNearestPortal.Enabled = !_portals.IsEmpty;
                 _formNearestPortal.ClearText();
 
-                ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
                 UpdateFilterValues();
             }
         }
@@ -90,6 +90,9 @@ namespace MinecraftPortalsDatabase
 
         private void OnClearFiltersClick(object sender, EventArgs e) =>
             _filter.Clear();
+
+        private void OnSelectAnotherWorldClick(object sender, EventArgs e) => 
+            SelectAnotherWorld?.Invoke();
 
         private void OnPortalDataChanged(Portal portal)
         {
@@ -118,7 +121,6 @@ namespace MinecraftPortalsDatabase
                 _dataTable.Rows.Add(portal.ToDataGridViewRow());
                 _btnNearestPortal.Enabled = true;
 
-                ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
                 UpdateFilterValues();
             }
         }
@@ -128,7 +130,6 @@ namespace MinecraftPortalsDatabase
             _dataTable.DefaultView.RowFilter = filter;
             _btnClearFilters.Enabled = filter != string.Empty;
             _formNearestPortal.ClearText();
-            ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
         }
 
         private void OnDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e) =>
@@ -146,9 +147,6 @@ namespace MinecraftPortalsDatabase
             _btnEdit.Enabled = _dataGridView.SelectedRows.Count == 1;
             _selectionChanged = true;
         }
-
-        private void OnFormSizeChanged(object sender, EventArgs e) =>
-            ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {

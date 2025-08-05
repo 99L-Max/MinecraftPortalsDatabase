@@ -8,6 +8,8 @@ namespace MinecraftPortalsDatabase
         private readonly WorldsCollection _worlds = new WorldsCollection();
         private bool _selectionChanged;
 
+        public event Action<FormDatabaseWorlds, string> WorldSelected;
+
         public FormDatabaseWorlds()
         {
             InitializeComponent();
@@ -43,16 +45,11 @@ namespace MinecraftPortalsDatabase
             {
                 sender.Close();
                 _dataGridView.Rows.Add(world.ToDataGridViewRow());
-
-                ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
             }
         }
 
-        private void OnOpenClick(object sender, EventArgs e)
-        {
-            //Close();
-            new FormDatabasePortals($"{_dataGridView.SelectedRows[0].Cells[0].Value}").Show();
-        }
+        private void OnOpenClick(object sender, EventArgs e) =>
+            WorldSelected?.Invoke(this, $"{_dataGridView.SelectedRows[0].Cells[0].Value}");
 
         private void OnAddClick(object sender, EventArgs e) =>
             ShowFormWorldSettings();
@@ -72,8 +69,6 @@ namespace MinecraftPortalsDatabase
                     _dataGridView.Rows.Remove(row);
                     FileHandler.RemoveJsonFile(name);
                 }
-
-                ControlsSetter.CorrectDataGridViewHeight(_dataGridView);
             }
         }
 
@@ -84,7 +79,7 @@ namespace MinecraftPortalsDatabase
         }
 
         private void OnDataGridViewSelectionChanged(object sender, EventArgs e)
-        { 
+        {
             _btnOpen.Enabled = _btnEdit.Enabled = _btnRemove.Enabled = _dataGridView.SelectedRows.Count == 1;
             _selectionChanged = true;
         }

@@ -12,7 +12,7 @@ namespace MinecraftPortalsDatabase
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += new ThreadExceptionEventHandler(ShowErrorMessage);
-            Application.Run(new FormDatabaseWorlds());
+            Application.Run(new FormMain());
         }
 
         private static void ShowErrorMessage(object sender, ThreadExceptionEventArgs e) =>

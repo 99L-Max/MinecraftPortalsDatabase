@@ -4,22 +4,24 @@ using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
 {
-    abstract class CollectionDatabaseObjects : DataSaving
+    abstract class CollectionDatabaseObjects : SavingDataJson
     {
         protected readonly Dictionary<string, DatabaseObject> _collection = new Dictionary<string, DatabaseObject>();
 
         public CollectionDatabaseObjects(string fileName) : base(fileName) { }
 
-        public bool IsEmpty =>
+        public bool IsEmpty => 
             _collection.Count == 0;
 
         protected void SetCollection(DatabaseObject[] databaseObjects)
         {
-            _collection.Clear();
-
             if (databaseObjects != null)
+            {
+                _collection.Clear();
+
                 foreach (var obj in databaseObjects)
                     _collection.Add(obj.Name, obj);
+            }
         }
 
         public bool Add(DatabaseObject obj)
@@ -54,13 +56,7 @@ namespace MinecraftPortalsDatabase
                 return true;
             }
 
-            if (Add(newObject))
-            {
-                _collection.Remove(nameOldObject);
-                return true;
-            }
-
-            return false;
+            return Add(newObject) && _collection.Remove(nameOldObject);
         }
 
         public object[][] ToDataGridView() =>

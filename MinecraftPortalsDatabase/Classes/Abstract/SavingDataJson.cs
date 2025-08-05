@@ -3,12 +3,12 @@ using System.IO;
 
 namespace MinecraftPortalsDatabase
 {
-    abstract class DataSaving
+    abstract class SavingDataJson
     {
         public readonly string FullPathFile;
 
-        public DataSaving(string fileName) =>
-            FullPathFile = $@"{FileHandler.PathLocalAppData}\{fileName}.json";
+        public SavingDataJson(string jsonFileName) =>
+            FullPathFile = $@"{FileHandler.PathLocalAppData}\{jsonFileName}.json";
 
         protected void Save(object data) =>
             File.WriteAllText(FullPathFile, JsonConvert.SerializeObject(data));

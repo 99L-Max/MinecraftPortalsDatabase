@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -37,8 +36,5 @@ namespace MinecraftPortalsDatabase
                 i++;
             }
         }
-
-        public static void CorrectDataGridViewHeight(DataGridView dgv) =>
-            dgv.Height = dgv.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + dgv.ColumnHeadersHeight;
     }
 }

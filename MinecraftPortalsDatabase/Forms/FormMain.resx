@@ -117,20 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\Button\Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dictionary_ColumnNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dictionaries\Dictionary_ColumnNames.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="End_Portal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\Background\End_Portal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Obsidian" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\Background\Obsidian.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAMIOAADCDgAAAAAAAAAA
+        AACeADafvwVUwcgLX8jNEGjNzRFqzr8FVMG+AVC+1Rt71c0QaM27AU69zxRx0dIXc9KxAD+xpgA6p7EA
+        QLKxAD+xtgFHt7QBQ7XGCl3H5U+k5dUce9WxAD+xrAA8rb4BT768AU28pgA6p7YBRrbZJILZ0BNv0LMA
+        QbOiADijswBBs7cBSbm5AUm72SyK29gjg9ixAECynQA3nbsBTr2+AU++wQZXw7MAQbOjADakvAFNvNIa
+        edTZK4nbtgFFt68APrC/BVTB2SyK29kkgtm0AUW1qgA7rLcBSrnZLYrbzxRx0dATb9DZJYTZugFKuqIA
+        OKK+AU++2SaE2dwyj97AAlLAxAZYxNATb9CxAECyqgA7rMQGWMTgO5fg3DKP3r8FVMHIDGLK3DKP3tUh
+        fde2AUa2owA2pLwBTbzZKobawgZVwrYBRbevAD6wngA1nrwBTbzZJYPZ2SqG2rwBTby5AUy7zRJsz8gL
+        YMngPJjg2SaG2rEAQLKkADemtgFHt7MAQbPDBlrFsgFCtL4EUL7YI4PY1h161q8APrCrADuruQFJu8AF
+        UsDSGHTSzRJsz9ATb9DGB13HtgFHt8IGVcK9BFG/zxNx0b4BT760AUO1xgZbxrwBTby3AUm5tAFDtaIA
+        OKPPE3HR2SyK2+E+muG/BVTBrgA9rqgAOajNEGjNyAtgycYKXce2AUa2sQA/scYHXce7AU69rQA+r7YB
+        R7euAD2uzRJsz8gLX8jNEm3PzRFqzqkAOqqoADmouQFJu8EGV8PWHHrWywxky74EUL7ZLIrbzxRx0agA
+        OaioADmotwFJubcBSrnAAlLAxglbxq8APrCkADemvwVUwdkqhtrDBlrFrwA+sLQBRbWqADusyAtgyeA6
+        l+DIDGLKpgA6p6MANqSkADemtwFJuaYAOqeeADafvQRRv9knhtrPF3HRpAA3pqkAOqq7AU69ogA4o6IA
+        OKLLDGTL2SSD2cgMYsqkADemsQBAsrEAP7GkADemwQZXw9YdfdbLDGTLrgA9rqUAOaW8AU28ywxky80S
+        as6sADytpQA5pcEGV8PZLIrbyg9mzM8UcdG4AUi4wQZXw+BCnOLLDGTLrgA9rqMANqTGCVvG1Rt61c0R
+        as7gQZrizRBoza8APrClADmlvwVUwdMadtPSGnjUwgZVwssMZMvNEmzPsQBAsqEAN6G+AU++0BJv0OBB
+        m+LZJ4baywxky9ksitvSGHTSpgA6p6cAOam9BFC/sQBAsqMANqS+BFC+twFKubEAQLK4AUi4vAFOvL8F
+        VMG5AUm7zRFqzs8UcdHLDGTLyAtgybYBR7e4AUi4yAxiyr0EUb+sADytyAtgydgjgNi9BFG/owA2pKsA
+        O6u/BVTBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
   </data>
 </root>

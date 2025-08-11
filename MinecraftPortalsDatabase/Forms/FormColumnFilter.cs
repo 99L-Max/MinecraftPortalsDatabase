@@ -7,10 +7,10 @@ namespace MinecraftPortalsDatabase
 {
     partial class FormColumnFilter : Form
     {
-        public readonly ColumnNames ColumnName;
-        public event Action<ColumnNames, IEnumerable<string>> ValuesSelected;
+        public readonly string ColumnName;
+        public event Action<string, IEnumerable<string>> ValuesSelected;
 
-        public FormColumnFilter(ColumnNames columnName, Dictionary<string, bool> items)
+        public FormColumnFilter(string columnName, Dictionary<string, bool> items)
         {
             InitializeComponent();
 

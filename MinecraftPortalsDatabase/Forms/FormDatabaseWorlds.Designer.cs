@@ -39,7 +39,8 @@
             this._btnEdit = new System.Windows.Forms.Button();
             this._btnAdd = new System.Windows.Forms.Button();
             this._dataGridView = new System.Windows.Forms.DataGridView();
-            this.Worlds = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IconWorld = new System.Windows.Forms.DataGridViewImageColumn();
+            this.WorldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -149,7 +150,6 @@
             this._dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._dataGridView.BackgroundColor = System.Drawing.Color.Black;
             this._dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -161,9 +161,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this._dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this._dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dataGridView.ColumnHeadersVisible = false;
             this._dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Worlds});
+            this.IconWorld,
+            this.WorldName});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -173,7 +174,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this._dataGridView.EnableHeadersVisualStyles = false;
-            this._dataGridView.Location = new System.Drawing.Point(15, 14);
+            this._dataGridView.Location = new System.Drawing.Point(0, 43);
             this._dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this._dataGridView.MultiSelect = false;
             this._dataGridView.Name = "_dataGridView";
@@ -188,17 +189,24 @@
             this._dataGridView.RowHeadersVisible = false;
             this._dataGridView.RowTemplate.Height = 100;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(585, 222);
+            this._dataGridView.Size = new System.Drawing.Size(616, 167);
             this._dataGridView.TabIndex = 7;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewCellClick);
             this._dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnOpenClick);
             this._dataGridView.SelectionChanged += new System.EventHandler(this.OnDataGridViewSelectionChanged);
             // 
-            // Worlds
+            // IconWorld
             // 
-            this.Worlds.HeaderText = "Worlds";
-            this.Worlds.Name = "Worlds";
-            this.Worlds.ReadOnly = true;
+            this.IconWorld.HeaderText = "Icon";
+            this.IconWorld.Name = "IconWorld";
+            this.IconWorld.ReadOnly = true;
+            // 
+            // WorldName
+            // 
+            this.WorldName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WorldName.HeaderText = "World";
+            this.WorldName.Name = "WorldName";
+            this.WorldName.ReadOnly = true;
             // 
             // FormDatabaseWorlds
             // 
@@ -228,6 +236,7 @@
         private System.Windows.Forms.Button _btnEdit;
         private System.Windows.Forms.DataGridView _dataGridView;
         private System.Windows.Forms.Button _btnOpen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Worlds;
+        private System.Windows.Forms.DataGridViewImageColumn IconWorld;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WorldName;
     }
 }

@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using MinecraftPortalsDatabase.Properties;
+using Newtonsoft.Json;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -26,26 +28,44 @@ namespace MinecraftPortalsDatabase
 
         public static void RenameWorldFolder(string oldNameWorld, string newNameWorld)
         {
-            try
-            {
-                Directory.Move($@"{PathLocalAppData}\{oldNameWorld}", $@"{PathLocalAppData}\{newNameWorld}");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            if (oldNameWorld == newNameWorld) return;
+            try { Directory.Move($@"{PathLocalAppData}\{oldNameWorld}", $@"{PathLocalAppData}\{newNameWorld}"); }
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         public static void RemoveWorldFolder(string worldName)
         {
+            try { Directory.Delete($@"{PathLocalAppData}\{worldName}", true); }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+        }
+
+        public static void SaveIconWorld(string worldName, Image icon)
+        {
+            try { icon.Save($@"{PathLocalAppData}\{worldName}\icon.png"); }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+        }
+
+        public static Image ReadIconWorld(string worldName)
+        {
             try
             {
-                Directory.Delete($@"{PathLocalAppData}\{worldName}", true);
+                using (var image = new Bitmap($@"{PathLocalAppData}\{worldName}\icon.png"))
+                    return new Bitmap(image);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.Message);
+                return Resources.Default_World_Icon;
             }
+        }
+
+        public static Image OpenImageFromFile()
+        {
+            using (var ofDialog = new OpenFileDialog() { Filter = "Изображения|*.jpg;*.jpeg;*.png;" })
+                if (ofDialog.ShowDialog() == DialogResult.OK)
+                    using (var image = new Bitmap(ofDialog.FileName))
+                        return new Bitmap(image);
+
+            return null;
         }
     }
 }

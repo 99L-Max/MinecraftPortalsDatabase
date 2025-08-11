@@ -1,6 +1,6 @@
 ﻿namespace MinecraftPortalsDatabase
 {
-    enum ColumnNames
+    enum PortalsTableColumnNames
     {
           Name,
           BiomeOverworld,

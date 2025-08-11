@@ -9,15 +9,15 @@ namespace MinecraftPortalsDatabase
 {
     class DataGridViewRowFilter
     {
-        private readonly Dictionary<ColumnNames, string> _filters = new Dictionary<ColumnNames, string>();
-        private readonly Dictionary<ColumnNames, Dictionary<string, bool>> _columnCheckedValues;
+        private readonly Dictionary<string, string> _filters = new Dictionary<string, string>();
+        private readonly Dictionary<string, Dictionary<string, bool>> _columnCheckedValues;
 
-        public readonly ReadOnlyCollection<ColumnNames> FilterableColumns;
+        public readonly ReadOnlyCollection<string> FilterableColumns;
         public event Action<string> FilterChanged;
 
-        public DataGridViewRowFilter(params ColumnNames[] columnNames)
+        public DataGridViewRowFilter(params string[] columnNames)
         {
-            FilterableColumns = new ReadOnlyCollection<ColumnNames>(columnNames.Distinct().ToArray());
+            FilterableColumns = new ReadOnlyCollection<string>(columnNames.Distinct().ToArray());
 
             _filters = FilterableColumns.ToDictionary(k => k, v => string.Empty);
             _columnCheckedValues = FilterableColumns.ToDictionary(k => k, v => new Dictionary<string, bool>());
@@ -25,7 +25,7 @@ namespace MinecraftPortalsDatabase
 
         public string Filter { get; private set; }
 
-        private void OnValuesSelected(ColumnNames columnName, IEnumerable<string> values)
+        private void OnValuesSelected(string columnName, IEnumerable<string> values)
         {
             if (!_filters.ContainsKey(columnName)) return;
             _filters[columnName] = values.Count() > 0 ? string.Join(" OR ", values.Select(v => $"{columnName} = '{v}'")) : string.Empty;
@@ -45,7 +45,7 @@ namespace MinecraftPortalsDatabase
             }
         }
 
-        public void UpdateValues(ColumnNames columnName, IEnumerable<string> values)
+        public void UpdateValues(string columnName, IEnumerable<string> values)
         {
             if (_columnCheckedValues.ContainsKey(columnName))
             {
@@ -58,7 +58,7 @@ namespace MinecraftPortalsDatabase
             }
         }
 
-        public void ShowFormFilter(ColumnNames columnName)
+        public void ShowFormFilter(string columnName)
         {
             if (!_filters.ContainsKey(columnName)) return;
 

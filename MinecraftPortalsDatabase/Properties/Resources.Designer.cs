@@ -71,11 +71,31 @@ namespace MinecraftPortalsDatabase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Default_World_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Default_World_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Dictionary_ColumnNames {
+        internal static byte[] Dictionary_PortalsTableColumnNames {
             get {
-                object obj = ResourceManager.GetObject("Dictionary_ColumnNames", resourceCulture);
+                object obj = ResourceManager.GetObject("Dictionary_PortalsTableColumnNames", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Dictionary_WorldsTableColumnNames {
+            get {
+                object obj = ResourceManager.GetObject("Dictionary_WorldsTableColumnNames", resourceCulture);
                 return ((byte[])(obj));
             }
         }

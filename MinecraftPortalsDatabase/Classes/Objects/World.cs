@@ -2,11 +2,8 @@
 {
     class World : DatabaseObject
     {
-        public PortalsCollection GetPortalsCollectionFromFile() =>
-            new PortalsCollection(Name);
-
         public override object[] ToDataGridViewRow() =>
-            new object[] { Name };
+            new object[] { FileHandler.ReadIconWorld(Name), Name };
 
         public override DatabaseObject GetCopy() =>
             new World() { Name = Name };

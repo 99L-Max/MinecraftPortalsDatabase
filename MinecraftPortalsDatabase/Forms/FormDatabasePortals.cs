@@ -9,7 +9,7 @@ namespace MinecraftPortalsDatabase
     partial class FormDatabasePortals : Form
     {
         private readonly DataTable _dataTable = new DataTable();
-        private readonly DataGridViewRowFilter _filter = new DataGridViewRowFilter(ColumnNames.Name, ColumnNames.BiomeOverworld, ColumnNames.BiomeNether);
+        private readonly DataGridViewRowFilter _filter;
         private readonly FormPortalSettings _formPortalSettings = new FormPortalSettings();
         private readonly FormNearestPortal _formNearestPortal = new FormNearestPortal();
         private readonly PortalsCollection _portals;
@@ -22,8 +22,12 @@ namespace MinecraftPortalsDatabase
         {
             InitializeComponent();
             _portals = new PortalsCollection(worldName);
+            _filter = new DataGridViewRowFilter(
+                PortalsTableColumnNames.Name.ToString(),
+                PortalsTableColumnNames.BiomeOverworld.ToString(),
+                PortalsTableColumnNames.BiomeNether.ToString());
 
-            ControlsSetter.SetColumns(_dataGridView, _dataTable, JsonManager.GetDictionary<ColumnNames, string>(Resources.Dictionary_ColumnNames));
+            ControlsSetter.SetColumns(_dataGridView, _dataTable, JsonManager.GetDictionary<PortalsTableColumnNames, string>(Resources.Dictionary_PortalsTableColumnNames));
             foreach (var obj in _portals.ToDataGridView()) _dataTable.Rows.Add(obj);
 
             _filter.FilterChanged += OnFilterChanged;
@@ -33,14 +37,14 @@ namespace MinecraftPortalsDatabase
             _formPortalSettings.FormClosing += OnFormDialogClosing;
             _formNearestPortal.FormClosing += OnFormDialogClosing;
 
-            _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+            _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
             _btnNearestPortal.Enabled = !_portals.IsEmpty;
 
             OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
             UpdateFilterValues();
         }
 
-        private IEnumerable<string> GetDataGridViewColumns(ColumnNames column)
+        private IEnumerable<string> GetDataGridViewColumns(PortalsTableColumnNames column)
         {
             for (int i = 0; i < _dataGridView.RowCount; i++)
                 yield return _dataGridView.Rows[i].Cells[$"{column}"].Value.ToString();
@@ -55,7 +59,7 @@ namespace MinecraftPortalsDatabase
         private void UpdateFilterValues()
         {
             foreach (var column in _filter.FilterableColumns)
-                _filter.UpdateValues(column, _portals.GetColumn(column));
+                _filter.UpdateValues(column, _portals.GetColumn(_dataGridView.Columns[column].Index));
         }
 
         private void OnFormDialogClosing(object sender, FormClosingEventArgs e)
@@ -88,7 +92,7 @@ namespace MinecraftPortalsDatabase
                         _dataGridView.Rows.Remove(row);
 
                 _portals.Save();
-                _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+                _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
                 _btnNearestPortal.Enabled = !_portals.IsEmpty;
 
                 UpdateFilterValues();
@@ -114,7 +118,7 @@ namespace MinecraftPortalsDatabase
                 if (_portals.Replace(name, portal))
                 {
                     _formPortalSettings.Hide();
-                    _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+                    _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
                     _portals.Save();
 
                     var items = portal.ToDataGridViewRow();
@@ -128,7 +132,7 @@ namespace MinecraftPortalsDatabase
             else if (_portals.Add(portal))
             {
                 _formPortalSettings.Hide();
-                _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+                _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
                 _portals.Save();
                 _dataTable.Rows.Add(portal.ToDataGridViewRow());
                 _btnNearestPortal.Enabled = true;
@@ -142,11 +146,11 @@ namespace MinecraftPortalsDatabase
             _dataTable.DefaultView.RowFilter = filter;
             _btnClearFilters.Enabled = filter != string.Empty;
             _btnNearestPortal.Enabled = _dataGridView.RowCount > 0;
-            _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(ColumnNames.Name));
+            _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
         }
 
         private void OnDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e) =>
-            _filter.ShowFormFilter((ColumnNames)e.ColumnIndex);
+            _filter.ShowFormFilter(_dataGridView.Columns[e.ColumnIndex].Name);
 
         private void OnDataGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {

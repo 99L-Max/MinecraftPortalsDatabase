@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
@@ -17,19 +18,19 @@ namespace MinecraftPortalsDatabase
             OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
         }
 
-        private void ShowFormWorldSettings(string name = "")
+        private void ShowFormWorldSettings(World world = null)
         {
-            var form = new FormWorldSettings(name);
+            var form = new FormWorldSettings(world);
             form.WorldDataChanged += OnWorldDataChanged;
             form.ShowDialog();
         }
 
-        private void OnWorldDataChanged(FormWorldSettings sender, World world)
+        private void OnWorldDataChanged(FormWorldSettings sender, World world, Image icon)
         {
             if (sender.IsReplacementWorld)
             {
                 var row = _dataGridView.SelectedRows[0];
-                var name = row.Cells[0].Value.ToString();
+                var name = row.Cells[$"{WorldsTableColumnNames.WorldName}"].Value.ToString();
 
                 if (_worlds.Replace(name, world))
                 {
@@ -37,6 +38,7 @@ namespace MinecraftPortalsDatabase
                     _worlds.Save();
 
                     FileHandler.RenameWorldFolder(name, world.Name);
+                    FileHandler.SaveIconWorld(world.Name, icon);
 
                     var items = world.ToDataGridViewRow();
 
@@ -50,25 +52,27 @@ namespace MinecraftPortalsDatabase
                 _worlds.Save();
 
                 FileHandler.CreateWorldFolder(world.Name);
+                FileHandler.SaveIconWorld(world.Name, icon);
+
                 _dataGridView.Rows.Add(world.ToDataGridViewRow());
             }
         }
 
         private void OnOpenClick(object sender, EventArgs e) =>
-            WorldSelected?.Invoke(this, $"{_dataGridView.SelectedRows[0].Cells[0].Value}");
+            WorldSelected?.Invoke(this, $"{_dataGridView.SelectedRows[0].Cells[$"{WorldsTableColumnNames.WorldName}"].Value}");
 
         private void OnAddClick(object sender, EventArgs e) =>
             ShowFormWorldSettings();
 
         private void OnEditClick(object sender, EventArgs e) =>
-            ShowFormWorldSettings($"{_dataGridView.SelectedRows[0].Cells[0].Value}");
+            ShowFormWorldSettings(_worlds.GetCopyObject($"{_dataGridView.SelectedRows[0].Cells[$"{WorldsTableColumnNames.WorldName}"].Value}") as World);
 
         private void OnRemoveClick(object sender, EventArgs e)
         {
             if (DialogResult.Yes == MessageBox.Show("Do you want to delete the selected world?\nThis action cannot be undone.", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 var row = _dataGridView.SelectedRows[0];
-                var name = row.Cells[0].Value.ToString();
+                var name = row.Cells[$"{WorldsTableColumnNames.WorldName}"].Value.ToString();
 
                 if (_worlds.Remove(name))
                 {

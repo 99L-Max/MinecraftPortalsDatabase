@@ -30,32 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWorldSettings));
             this._txtName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this._btnApply = new System.Windows.Forms.Button();
             this._btnCancel = new System.Windows.Forms.Button();
+            this._pbIcon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this._pbIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // _txtName
             // 
             this._txtName.BackColor = System.Drawing.Color.Black;
+            this._txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._txtName.ForeColor = System.Drawing.Color.White;
-            this._txtName.Location = new System.Drawing.Point(107, 7);
-            this._txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._txtName.Location = new System.Drawing.Point(119, 28);
+            this._txtName.Margin = new System.Windows.Forms.Padding(4);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(587, 35);
+            this._txtName.Size = new System.Drawing.Size(582, 62);
             this._txtName.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(15, 11);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 29);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Name:";
             // 
             // _btnApply
             // 
@@ -65,8 +55,8 @@
             this._btnApply.FlatAppearance.BorderSize = 10;
             this._btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnApply.ForeColor = System.Drawing.Color.White;
-            this._btnApply.Location = new System.Drawing.Point(20, 50);
-            this._btnApply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnApply.Location = new System.Drawing.Point(12, 119);
+            this._btnApply.Margin = new System.Windows.Forms.Padding(4);
             this._btnApply.Name = "_btnApply";
             this._btnApply.Size = new System.Drawing.Size(331, 46);
             this._btnApply.TabIndex = 12;
@@ -82,13 +72,30 @@
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnCancel.ForeColor = System.Drawing.Color.White;
-            this._btnCancel.Location = new System.Drawing.Point(364, 50);
-            this._btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnCancel.Location = new System.Drawing.Point(370, 119);
+            this._btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(331, 46);
             this._btnCancel.TabIndex = 13;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // _pbIcon
+            // 
+            this._pbIcon.BackColor = System.Drawing.Color.Transparent;
+            this._pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this._pbIcon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._pbIcon.Image = global::MinecraftPortalsDatabase.Properties.Resources.Default_World_Icon;
+            this._pbIcon.Location = new System.Drawing.Point(12, 12);
+            this._pbIcon.Name = "_pbIcon";
+            this._pbIcon.Size = new System.Drawing.Size(100, 100);
+            this._pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this._pbIcon.TabIndex = 14;
+            this._pbIcon.TabStop = false;
+            this._pbIcon.Click += new System.EventHandler(this.OnSelectIcon);
+            this._pbIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.OnIconPaint);
+            this._pbIcon.MouseEnter += new System.EventHandler(this.OnIconMouseEnter);
+            this._pbIcon.MouseLeave += new System.EventHandler(this.OnIconMouseLeave);
             // 
             // FormWorldSettings
             // 
@@ -96,10 +103,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.Obsidian;
             this.CancelButton = this._btnCancel;
-            this.ClientSize = new System.Drawing.Size(714, 110);
+            this.ClientSize = new System.Drawing.Size(714, 184);
+            this.Controls.Add(this._pbIcon);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnApply);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this._txtName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -111,6 +118,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "World data";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this._pbIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,8 +127,8 @@
 
         #endregion
         private System.Windows.Forms.TextBox _txtName;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button _btnApply;
         private System.Windows.Forms.Button _btnCancel;
+        private System.Windows.Forms.PictureBox _pbIcon;
     }
 }

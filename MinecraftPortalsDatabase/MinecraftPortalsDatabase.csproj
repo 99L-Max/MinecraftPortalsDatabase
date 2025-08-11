@@ -65,10 +65,12 @@
     <Compile Include="Classes\Static\FileHandler.cs" />
     <Compile Include="Classes\Static\JsonManager.cs" />
     <Compile Include="Classes\Static\MathCustom.cs" />
+    <Compile Include="Classes\Static\Painter.cs" />
     <Compile Include="Enums\BiomeNether.cs" />
     <Compile Include="Enums\BiomeOverworld.cs" />
-    <Compile Include="Enums\ColumnNames.cs" />
+    <Compile Include="Enums\PortalsTableColumnNames.cs" />
     <Compile Include="Enums\Dimension.cs" />
+    <Compile Include="Enums\WorldsTableColumnNames.cs" />
     <Compile Include="Forms\FormDatabaseWorlds.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,7 +162,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dictionaries\Dictionary_ColumnNames.json" />
+    <None Include="Resources\Dictionaries\Dictionary_WorldsTableColumnNames.json" />
+    <None Include="Resources\Dictionaries\Dictionary_PortalsTableColumnNames.json" />
     <None Include="Resources\Textures\Button\Button.png" />
   </ItemGroup>
   <ItemGroup />
@@ -168,6 +171,7 @@
     <Content Include="Resources\Icons\Icon.ico" />
     <Content Include="Resources\Textures\Background\End_Portal.png" />
     <Content Include="Resources\Textures\Background\Obsidian.png" />
+    <Content Include="Resources\Textures\Default_World_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

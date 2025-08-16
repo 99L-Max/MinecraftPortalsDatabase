@@ -35,12 +35,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDatabasePortals));
             this._dataGridView = new System.Windows.Forms.DataGridView();
             this._tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this._btnSelectAnotherWorld = new System.Windows.Forms.Button();
             this._btnAdd = new System.Windows.Forms.Button();
             this._btnRemove = new System.Windows.Forms.Button();
             this._btnEdit = new System.Windows.Forms.Button();
             this._btnNearestPortal = new System.Windows.Forms.Button();
             this._btnClearFilters = new System.Windows.Forms.Button();
-            this._btnSelectAnotherWorld = new System.Windows.Forms.Button();
+            this._btnMap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
             this._tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +96,7 @@
             this._dataGridView.RowHeadersVisible = false;
             this._dataGridView.RowTemplate.Height = 35;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(680, 395);
+            this._dataGridView.Size = new System.Drawing.Size(853, 404);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewCellClick);
             this._dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnEditClick);
@@ -107,24 +108,43 @@
             this._tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this._tableLayoutPanel.ColumnCount = 3;
-            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this._tableLayoutPanel.Controls.Add(this._btnSelectAnotherWorld, 2, 1);
+            this._tableLayoutPanel.ColumnCount = 4;
+            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this._tableLayoutPanel.Controls.Add(this._btnAdd, 0, 0);
             this._tableLayoutPanel.Controls.Add(this._btnRemove, 2, 0);
             this._tableLayoutPanel.Controls.Add(this._btnEdit, 1, 0);
             this._tableLayoutPanel.Controls.Add(this._btnNearestPortal, 0, 1);
-            this._tableLayoutPanel.Controls.Add(this._btnClearFilters, 1, 1);
-            this._tableLayoutPanel.Location = new System.Drawing.Point(15, 417);
+            this._tableLayoutPanel.Controls.Add(this._btnMap, 1, 1);
+            this._tableLayoutPanel.Controls.Add(this._btnSelectAnotherWorld, 3, 0);
+            this._tableLayoutPanel.Controls.Add(this._btnClearFilters, 2, 1);
+            this._tableLayoutPanel.Location = new System.Drawing.Point(15, 426);
             this._tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this._tableLayoutPanel.Name = "_tableLayoutPanel";
             this._tableLayoutPanel.RowCount = 2;
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._tableLayoutPanel.Size = new System.Drawing.Size(680, 121);
+            this._tableLayoutPanel.Size = new System.Drawing.Size(853, 121);
             this._tableLayoutPanel.TabIndex = 5;
+            // 
+            // _btnSelectAnotherWorld
+            // 
+            this._btnSelectAnotherWorld.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnSelectAnotherWorld.BackgroundImage")));
+            this._btnSelectAnotherWorld.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnSelectAnotherWorld.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._btnSelectAnotherWorld.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._btnSelectAnotherWorld.ForeColor = System.Drawing.Color.White;
+            this._btnSelectAnotherWorld.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._btnSelectAnotherWorld.Location = new System.Drawing.Point(643, 4);
+            this._btnSelectAnotherWorld.Margin = new System.Windows.Forms.Padding(4);
+            this._btnSelectAnotherWorld.Name = "_btnSelectAnotherWorld";
+            this._btnSelectAnotherWorld.Size = new System.Drawing.Size(206, 52);
+            this._btnSelectAnotherWorld.TabIndex = 6;
+            this._btnSelectAnotherWorld.Text = "Select another world";
+            this._btnSelectAnotherWorld.UseVisualStyleBackColor = true;
+            this._btnSelectAnotherWorld.Click += new System.EventHandler(this.OnSelectAnotherWorldClick);
             // 
             // _btnAdd
             // 
@@ -137,7 +157,7 @@
             this._btnAdd.Location = new System.Drawing.Point(4, 4);
             this._btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this._btnAdd.Name = "_btnAdd";
-            this._btnAdd.Size = new System.Drawing.Size(218, 52);
+            this._btnAdd.Size = new System.Drawing.Size(205, 52);
             this._btnAdd.TabIndex = 1;
             this._btnAdd.Text = "Add";
             this._btnAdd.UseVisualStyleBackColor = true;
@@ -151,10 +171,10 @@
             this._btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnRemove.ForeColor = System.Drawing.Color.White;
             this._btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnRemove.Location = new System.Drawing.Point(456, 4);
+            this._btnRemove.Location = new System.Drawing.Point(430, 4);
             this._btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this._btnRemove.Name = "_btnRemove";
-            this._btnRemove.Size = new System.Drawing.Size(220, 52);
+            this._btnRemove.Size = new System.Drawing.Size(205, 52);
             this._btnRemove.TabIndex = 3;
             this._btnRemove.Text = "Remove";
             this._btnRemove.UseVisualStyleBackColor = true;
@@ -168,10 +188,10 @@
             this._btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnEdit.ForeColor = System.Drawing.Color.White;
             this._btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnEdit.Location = new System.Drawing.Point(230, 4);
+            this._btnEdit.Location = new System.Drawing.Point(217, 4);
             this._btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this._btnEdit.Name = "_btnEdit";
-            this._btnEdit.Size = new System.Drawing.Size(218, 52);
+            this._btnEdit.Size = new System.Drawing.Size(205, 52);
             this._btnEdit.TabIndex = 4;
             this._btnEdit.Text = "Edit";
             this._btnEdit.UseVisualStyleBackColor = true;
@@ -188,7 +208,7 @@
             this._btnNearestPortal.Location = new System.Drawing.Point(4, 64);
             this._btnNearestPortal.Margin = new System.Windows.Forms.Padding(4);
             this._btnNearestPortal.Name = "_btnNearestPortal";
-            this._btnNearestPortal.Size = new System.Drawing.Size(218, 53);
+            this._btnNearestPortal.Size = new System.Drawing.Size(205, 53);
             this._btnNearestPortal.TabIndex = 2;
             this._btnNearestPortal.Text = "The nearest portal";
             this._btnNearestPortal.UseVisualStyleBackColor = true;
@@ -203,38 +223,38 @@
             this._btnClearFilters.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnClearFilters.ForeColor = System.Drawing.Color.Red;
             this._btnClearFilters.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnClearFilters.Location = new System.Drawing.Point(230, 64);
+            this._btnClearFilters.Location = new System.Drawing.Point(430, 64);
             this._btnClearFilters.Margin = new System.Windows.Forms.Padding(4);
             this._btnClearFilters.Name = "_btnClearFilters";
-            this._btnClearFilters.Size = new System.Drawing.Size(218, 53);
+            this._btnClearFilters.Size = new System.Drawing.Size(205, 53);
             this._btnClearFilters.TabIndex = 5;
             this._btnClearFilters.Text = "Clear the filters";
             this._btnClearFilters.UseVisualStyleBackColor = true;
             this._btnClearFilters.Click += new System.EventHandler(this.OnClearFiltersClick);
             // 
-            // _btnSelectAnotherWorld
+            // _btnMap
             // 
-            this._btnSelectAnotherWorld.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnSelectAnotherWorld.BackgroundImage")));
-            this._btnSelectAnotherWorld.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnSelectAnotherWorld.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._btnSelectAnotherWorld.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this._btnSelectAnotherWorld.ForeColor = System.Drawing.Color.White;
-            this._btnSelectAnotherWorld.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnSelectAnotherWorld.Location = new System.Drawing.Point(456, 64);
-            this._btnSelectAnotherWorld.Margin = new System.Windows.Forms.Padding(4);
-            this._btnSelectAnotherWorld.Name = "_btnSelectAnotherWorld";
-            this._btnSelectAnotherWorld.Size = new System.Drawing.Size(220, 53);
-            this._btnSelectAnotherWorld.TabIndex = 6;
-            this._btnSelectAnotherWorld.Text = "Select another world";
-            this._btnSelectAnotherWorld.UseVisualStyleBackColor = true;
-            this._btnSelectAnotherWorld.Click += new System.EventHandler(this.OnSelectAnotherWorldClick);
+            this._btnMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnMap.BackgroundImage")));
+            this._btnMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._btnMap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._btnMap.ForeColor = System.Drawing.Color.White;
+            this._btnMap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._btnMap.Location = new System.Drawing.Point(217, 64);
+            this._btnMap.Margin = new System.Windows.Forms.Padding(4);
+            this._btnMap.Name = "_btnMap";
+            this._btnMap.Size = new System.Drawing.Size(205, 53);
+            this._btnMap.TabIndex = 7;
+            this._btnMap.Text = "Map";
+            this._btnMap.UseVisualStyleBackColor = true;
+            this._btnMap.Click += new System.EventHandler(this.OnMapClick);
             // 
             // FormDatabasePortals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(711, 552);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this._tableLayoutPanel);
             this.Controls.Add(this._dataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -259,6 +279,7 @@
         private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel;
         private System.Windows.Forms.Button _btnClearFilters;
         private System.Windows.Forms.Button _btnSelectAnotherWorld;
+        private System.Windows.Forms.Button _btnMap;
     }
 }
 

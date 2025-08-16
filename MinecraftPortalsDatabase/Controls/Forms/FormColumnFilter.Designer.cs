@@ -43,7 +43,7 @@
             this._btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnClose.ForeColor = System.Drawing.Color.White;
             this._btnClose.Location = new System.Drawing.Point(234, 288);
-            this._btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnClose.Margin = new System.Windows.Forms.Padding(4);
             this._btnClose.Name = "_btnClose";
             this._btnClose.Size = new System.Drawing.Size(206, 46);
             this._btnClose.TabIndex = 15;
@@ -59,7 +59,7 @@
             this._btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnFilter.ForeColor = System.Drawing.Color.White;
             this._btnFilter.Location = new System.Drawing.Point(15, 288);
-            this._btnFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnFilter.Margin = new System.Windows.Forms.Padding(4);
             this._btnFilter.Name = "_btnFilter";
             this._btnFilter.Size = new System.Drawing.Size(206, 46);
             this._btnFilter.TabIndex = 14;
@@ -77,7 +77,7 @@
             this._checkedListBox.Items.AddRange(new object[] {
             "All"});
             this._checkedListBox.Location = new System.Drawing.Point(15, 14);
-            this._checkedListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._checkedListBox.Margin = new System.Windows.Forms.Padding(4);
             this._checkedListBox.Name = "_checkedListBox";
             this._checkedListBox.Size = new System.Drawing.Size(425, 240);
             this._checkedListBox.TabIndex = 16;

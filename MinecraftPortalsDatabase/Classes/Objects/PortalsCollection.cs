@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 namespace MinecraftPortalsDatabase
@@ -15,5 +16,11 @@ namespace MinecraftPortalsDatabase
 
         public IEnumerable<string> GetColumn(int indexColumn) =>
             _collection.Values.Select(x => x.ToDataGridViewRow()[indexColumn].ToString());
+
+        public IEnumerable<MapPoint> GetMapPoints(IEnumerable<string> names)
+        {
+            foreach (var p in _collection.Select(x => x.Value as Portal))
+                yield return new MapPoint($"{p}", p.LocationOverworld, names.Contains(p.Name) ? Color.BlueViolet : Color.Gray);
+        }
     }
 }

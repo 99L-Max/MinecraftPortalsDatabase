@@ -56,6 +56,7 @@
     <Compile Include="Classes\Abstract\DatabaseObject.cs" />
     <Compile Include="Classes\Objects\DataGridViewRowFilter.cs" />
     <Compile Include="Classes\Abstract\SavingDataJson.cs" />
+    <Compile Include="Classes\Objects\MapPoint.cs" />
     <Compile Include="Classes\Objects\Portal.cs" />
     <Compile Include="Classes\Objects\PortalsCollection.cs" />
     <Compile Include="Classes\Objects\World.cs" />
@@ -66,76 +67,94 @@
     <Compile Include="Classes\Static\JsonManager.cs" />
     <Compile Include="Classes\Static\MathCustom.cs" />
     <Compile Include="Classes\Static\Painter.cs" />
+    <Compile Include="Controls\Special\Map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Special\Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enums\BiomeNether.cs" />
     <Compile Include="Enums\BiomeOverworld.cs" />
     <Compile Include="Enums\PortalsTableColumnNames.cs" />
     <Compile Include="Enums\Dimension.cs" />
     <Compile Include="Enums\WorldsTableColumnNames.cs" />
-    <Compile Include="Forms\FormDatabaseWorlds.cs">
+    <Compile Include="Controls\Forms\FormDatabaseWorlds.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormDatabaseWorlds.Designer.cs">
+    <Compile Include="Controls\Forms\FormDatabaseWorlds.Designer.cs">
       <DependentUpon>FormDatabaseWorlds.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormColumnFilter.cs">
+    <Compile Include="Controls\Forms\FormColumnFilter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormColumnFilter.Designer.cs">
+    <Compile Include="Controls\Forms\FormColumnFilter.Designer.cs">
       <DependentUpon>FormColumnFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormDatabasePortals.cs">
+    <Compile Include="Controls\Forms\FormDatabasePortals.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormDatabasePortals.Designer.cs">
+    <Compile Include="Controls\Forms\FormDatabasePortals.Designer.cs">
       <DependentUpon>FormDatabasePortals.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMain.cs">
+    <Compile Include="Controls\Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMain.Designer.cs">
+    <Compile Include="Controls\Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormNearestPortal.cs">
+    <Compile Include="Controls\Forms\FormNearestPortal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormNearestPortal.Designer.cs">
+    <Compile Include="Controls\Forms\FormNearestPortal.Designer.cs">
       <DependentUpon>FormNearestPortal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormWorldSettings.cs">
+    <Compile Include="Controls\Forms\FormPortalsMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormWorldSettings.Designer.cs">
+    <Compile Include="Controls\Forms\FormPortalsMap.Designer.cs">
+      <DependentUpon>FormPortalsMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Forms\FormWorldSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Forms\FormWorldSettings.Designer.cs">
       <DependentUpon>FormWorldSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPortalSettings.cs">
+    <Compile Include="Controls\Forms\FormPortalSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPortalSettings.Designer.cs">
+    <Compile Include="Controls\Forms\FormPortalSettings.Designer.cs">
       <DependentUpon>FormPortalSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structs\Point3.cs" />
-    <EmbeddedResource Include="Forms\FormDatabaseWorlds.resx">
+    <EmbeddedResource Include="Controls\Forms\FormDatabaseWorlds.resx">
       <DependentUpon>FormDatabaseWorlds.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormColumnFilter.resx">
+    <EmbeddedResource Include="Controls\Forms\FormColumnFilter.resx">
       <DependentUpon>FormColumnFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormDatabasePortals.resx">
+    <EmbeddedResource Include="Controls\Forms\FormDatabasePortals.resx">
       <DependentUpon>FormDatabasePortals.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMain.resx">
+    <EmbeddedResource Include="Controls\Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormNearestPortal.resx">
+    <EmbeddedResource Include="Controls\Forms\FormNearestPortal.resx">
       <DependentUpon>FormNearestPortal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormWorldSettings.resx">
+    <EmbeddedResource Include="Controls\Forms\FormPortalsMap.resx">
+      <DependentUpon>FormPortalsMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Forms\FormWorldSettings.resx">
       <DependentUpon>FormWorldSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPortalSettings.resx">
+    <EmbeddedResource Include="Controls\Forms\FormPortalSettings.resx">
       <DependentUpon>FormPortalSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Special\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

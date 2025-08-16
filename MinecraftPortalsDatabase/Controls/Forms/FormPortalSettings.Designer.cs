@@ -110,6 +110,7 @@
             this._numOverworldY.Name = "_numOverworldY";
             this._numOverworldY.Size = new System.Drawing.Size(274, 35);
             this._numOverworldY.TabIndex = 2;
+            this._numOverworldY.ThousandsSeparator = true;
             this._numOverworldY.Value = new decimal(new int[] {
             64,
             0,
@@ -140,13 +141,14 @@
             this._numOverworldZ.Name = "_numOverworldZ";
             this._numOverworldZ.Size = new System.Drawing.Size(274, 35);
             this._numOverworldZ.TabIndex = 4;
+            this._numOverworldZ.ThousandsSeparator = true;
             // 
             // _txtName
             // 
             this._txtName.BackColor = System.Drawing.Color.Black;
             this._txtName.ForeColor = System.Drawing.Color.White;
             this._txtName.Location = new System.Drawing.Point(107, 7);
-            this._txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._txtName.Margin = new System.Windows.Forms.Padding(4);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(587, 35);
             this._txtName.TabIndex = 6;
@@ -184,7 +186,7 @@
             this._cmbBiomeOverworld.ForeColor = System.Drawing.Color.White;
             this._cmbBiomeOverworld.FormattingEnabled = true;
             this._cmbBiomeOverworld.Location = new System.Drawing.Point(101, 221);
-            this._cmbBiomeOverworld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._cmbBiomeOverworld.Margin = new System.Windows.Forms.Padding(4);
             this._cmbBiomeOverworld.Name = "_cmbBiomeOverworld";
             this._cmbBiomeOverworld.Size = new System.Drawing.Size(280, 37);
             this._cmbBiomeOverworld.TabIndex = 10;
@@ -198,7 +200,7 @@
             this._btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnApply.ForeColor = System.Drawing.Color.White;
             this._btnApply.Location = new System.Drawing.Point(15, 325);
-            this._btnApply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnApply.Margin = new System.Windows.Forms.Padding(4);
             this._btnApply.Name = "_btnApply";
             this._btnApply.Size = new System.Drawing.Size(331, 46);
             this._btnApply.TabIndex = 12;
@@ -215,7 +217,7 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._btnCancel.ForeColor = System.Drawing.Color.White;
             this._btnCancel.Location = new System.Drawing.Point(364, 325);
-            this._btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(331, 46);
             this._btnCancel.TabIndex = 13;
@@ -230,7 +232,7 @@
             this._cmbBiomeNether.ForeColor = System.Drawing.Color.White;
             this._cmbBiomeNether.FormattingEnabled = true;
             this._cmbBiomeNether.Location = new System.Drawing.Point(391, 221);
-            this._cmbBiomeNether.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._cmbBiomeNether.Margin = new System.Windows.Forms.Padding(4);
             this._cmbBiomeNether.Name = "_cmbBiomeNether";
             this._cmbBiomeNether.Size = new System.Drawing.Size(280, 37);
             this._cmbBiomeNether.TabIndex = 14;
@@ -259,7 +261,7 @@
             this._tableLayoutPanel.Controls.Add(this._chbOverworld, 1, 1);
             this._tableLayoutPanel.Controls.Add(this.label1, 0, 2);
             this._tableLayoutPanel.Location = new System.Drawing.Point(15, 50);
-            this._tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this._tableLayoutPanel.Name = "_tableLayoutPanel";
             this._tableLayoutPanel.RowCount = 6;
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -295,6 +297,7 @@
             this._numNetherZ.Name = "_numNetherZ";
             this._numNetherZ.Size = new System.Drawing.Size(280, 35);
             this._numNetherZ.TabIndex = 17;
+            this._numNetherZ.ThousandsSeparator = true;
             // 
             // _numNetherY
             // 
@@ -312,6 +315,7 @@
             this._numNetherY.Name = "_numNetherY";
             this._numNetherY.Size = new System.Drawing.Size(280, 35);
             this._numNetherY.TabIndex = 17;
+            this._numNetherY.ThousandsSeparator = true;
             this._numNetherY.Value = new decimal(new int[] {
             127,
             0,
@@ -329,6 +333,7 @@
             this._numNetherX.Name = "_numNetherX";
             this._numNetherX.Size = new System.Drawing.Size(280, 35);
             this._numNetherX.TabIndex = 17;
+            this._numNetherX.ThousandsSeparator = true;
             // 
             // _chbNether
             // 
@@ -338,7 +343,7 @@
             this._chbNether.Dock = System.Windows.Forms.DockStyle.Fill;
             this._chbNether.ForeColor = System.Drawing.Color.White;
             this._chbNether.Location = new System.Drawing.Point(391, 33);
-            this._chbNether.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._chbNether.Margin = new System.Windows.Forms.Padding(4);
             this._chbNether.Name = "_chbNether";
             this._chbNether.Size = new System.Drawing.Size(288, 33);
             this._chbNether.TabIndex = 19;
@@ -366,7 +371,7 @@
             this._chbOverworld.Dock = System.Windows.Forms.DockStyle.Fill;
             this._chbOverworld.ForeColor = System.Drawing.Color.White;
             this._chbOverworld.Location = new System.Drawing.Point(101, 33);
-            this._chbOverworld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._chbOverworld.Margin = new System.Windows.Forms.Padding(4);
             this._chbOverworld.Name = "_chbOverworld";
             this._chbOverworld.Size = new System.Drawing.Size(282, 33);
             this._chbOverworld.TabIndex = 18;

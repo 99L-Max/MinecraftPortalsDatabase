@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
@@ -38,7 +39,7 @@ namespace MinecraftPortalsDatabase
             _formNearestPortal.FormClosing += OnFormDialogClosing;
 
             _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
-            _btnNearestPortal.Enabled = !_portals.IsEmpty;
+            _btnNearestPortal.Enabled = _btnMap.Enabled = !_portals.IsEmpty;
 
             OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
             UpdateFilterValues();
@@ -93,10 +94,16 @@ namespace MinecraftPortalsDatabase
 
                 _portals.Save();
                 _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
-                _btnNearestPortal.Enabled = !_portals.IsEmpty;
+                _btnNearestPortal.Enabled = _btnMap.Enabled = !_portals.IsEmpty;
 
                 UpdateFilterValues();
             }
+        }
+
+        private void OnMapClick(object sender, EventArgs e)
+        {
+            var points = _portals.GetMapPoints(GetDataGridViewColumns(PortalsTableColumnNames.Name));
+            new FormPortalsMap(points).ShowDialog();
         }
 
         private void OnNearestPortalClick(object sender, EventArgs e) =>
@@ -135,7 +142,7 @@ namespace MinecraftPortalsDatabase
                 _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
                 _portals.Save();
                 _dataTable.Rows.Add(portal.ToDataGridViewRow());
-                _btnNearestPortal.Enabled = true;
+                _btnNearestPortal.Enabled = _btnMap.Enabled = true;
 
                 UpdateFilterValues();
             }
@@ -145,7 +152,7 @@ namespace MinecraftPortalsDatabase
         {
             _dataTable.DefaultView.RowFilter = filter;
             _btnClearFilters.Enabled = filter != string.Empty;
-            _btnNearestPortal.Enabled = _dataGridView.RowCount > 0;
+            _btnNearestPortal.Enabled = _btnMap.Enabled = _dataGridView.RowCount > 0;
             _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
         }
 

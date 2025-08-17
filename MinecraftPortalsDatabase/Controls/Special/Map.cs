@@ -29,22 +29,16 @@ namespace MinecraftPortalsDatabase
         {
             InitializeComponent();
 
-            var hitRadius = points.Select(x => x.Size.Height).Max();
-
-            var maxX = points.Select(x => x.Location.X).Max();
-            var maxY = points.Select(x => x.Location.Y).Max();
-            var minX = points.Select(x => x.Location.X).Min();
-            var minY = points.Select(x => x.Location.Y).Min();
-
-            var maxLoc = Math.Max(maxX, maxY);
-            var minLoc = Math.Min(minX, minY);
-
             _points = points.ToArray();
-            _squareHitRadius = hitRadius * hitRadius;
-            _minScale = Screen.PrimaryScreen.Bounds.Size.Width / (maxLoc - minLoc) / 4f;
+            _squareHitRadius = MathCustom.Square(points.Select(x => x.Size.Height).Max());
+
+            if (_points.Length > 1)
+                _minScale = Screen.PrimaryScreen.Bounds.Size.Width / MathCustom.GetDifferenceMinMax(_points) / 4f;
 
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             TabStop = true;
+
+            OnMouseLeave(this, EventArgs.Empty);
             OnSizeChanged(this, EventArgs.Empty);
         }
 
@@ -66,7 +60,7 @@ namespace MinecraftPortalsDatabase
         }
 
         private string LocationToString(PointF point) =>
-            $"{point.X:F0}; {point.Y:F0}";
+            $"{point.X:N0}; {point.Y:N0}";
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
@@ -137,6 +131,9 @@ namespace MinecraftPortalsDatabase
 
             _labelLocationCursor.Text = LocationToString(GetLocationOnMap(e.Location));
         }
+
+        private void OnMouseLeave(object sender, EventArgs e) =>
+            _labelLocationCursor.Text = string.Empty;
 
         private void OnMouseWheel(object sender, MouseEventArgs e) =>
             Zoom(e.Location, e.Delta);

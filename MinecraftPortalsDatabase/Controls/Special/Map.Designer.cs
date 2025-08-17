@@ -102,6 +102,7 @@
             this.SizeChanged += new System.EventHandler(this.OnSizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
+            this.MouseLeave += new System.EventHandler(this.OnMouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnMouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnMouseUp);
             this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.OnMouseWheel);

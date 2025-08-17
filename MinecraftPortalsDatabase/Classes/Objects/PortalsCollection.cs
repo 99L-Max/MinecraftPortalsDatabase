@@ -14,13 +14,10 @@ namespace MinecraftPortalsDatabase
         public string GetStringNearestPortal(HashSet<string> namesPortals, Dimension dimension, Point3 location) =>
             $"{MathCustom.GetNearestPortal(dimension, location, _collection.Where(x => namesPortals.Contains(x.Key)).Select(x => x.Value as Portal).ToArray())}";
 
-        public IEnumerable<string> GetColumn(int indexColumn) =>
-            _collection.Values.Select(x => x.ToDataGridViewRow()[indexColumn].ToString());
+        public IEnumerable<string> GetColumn(int index) =>
+            _collection.Values.Select(x => x.ToDataGridViewRow()[index].ToString());
 
-        public IEnumerable<MapPoint> GetMapPoints(IEnumerable<string> names)
-        {
-            foreach (var p in _collection.Select(x => x.Value as Portal))
-                yield return new MapPoint($"{p}", p.LocationOverworld, names.Contains(p.Name) ? Color.BlueViolet : Color.Gray);
-        }
+        public IEnumerable<MapPoint> GetMapPoints(IEnumerable<string> names) =>
+            _collection.Select(x => x.Value as Portal).Select(p => new MapPoint($"{p}", p.LocationOverworld, names.Contains(p.Name) ? Color.BlueViolet : Color.Gray));
     }
 }

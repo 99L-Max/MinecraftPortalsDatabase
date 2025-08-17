@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.Obsidian;
+            this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.End_Portal;
             this.CancelButton = this._btnCancel;
             this.ClientSize = new System.Drawing.Size(714, 184);
             this.Controls.Add(this._pbIcon);

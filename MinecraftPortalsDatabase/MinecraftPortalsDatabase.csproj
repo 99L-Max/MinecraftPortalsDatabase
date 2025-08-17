@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="Classes\Abstract\CollectionDatabaseObjects.cs" />
     <Compile Include="Classes\Abstract\DatabaseObject.cs" />
-    <Compile Include="Classes\Objects\DataGridViewRowFilter.cs" />
+    <Compile Include="Classes\Objects\DataGridViewColumnFilter.cs" />
     <Compile Include="Classes\Abstract\SavingDataJson.cs" />
     <Compile Include="Classes\Objects\MapPoint.cs" />
     <Compile Include="Classes\Objects\Portal.cs" />
@@ -189,8 +189,7 @@
   <ItemGroup>
     <Content Include="Resources\Icons\Icon.ico" />
     <Content Include="Resources\Textures\Background\End_Portal.png" />
-    <Content Include="Resources\Textures\Background\Obsidian.png" />
-    <Content Include="Resources\Textures\Default_World_Icon.png" />
+    <Content Include="Resources\Textures\Icons of Worlds\Default_World_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
 {
-    class DataGridViewRowFilter
+    class DataGridViewColumnFilter
     {
         private readonly Dictionary<string, string> _filters = new Dictionary<string, string>();
         private readonly Dictionary<string, Dictionary<string, bool>> _columnCheckedValues;
@@ -15,7 +15,7 @@ namespace MinecraftPortalsDatabase
         public readonly ReadOnlyCollection<string> FilterableColumns;
         public event Action<string> FilterChanged;
 
-        public DataGridViewRowFilter(params string[] columnNames)
+        public DataGridViewColumnFilter(params string[] columnNames)
         {
             FilterableColumns = new ReadOnlyCollection<string>(columnNames.Distinct().ToArray());
 

@@ -14,7 +14,7 @@ namespace MinecraftPortalsDatabase
             _map = new Map(points)
             {
                 Dock = DockStyle.Fill,
-                BackColor = BackColor,
+                BackColor = BackColor
             };
 
             Controls.Add(_map);

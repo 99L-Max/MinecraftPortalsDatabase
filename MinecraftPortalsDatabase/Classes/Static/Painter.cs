@@ -49,16 +49,5 @@ namespace MinecraftPortalsDatabase
 
             return result;
         }
-
-        public static Image CreateAlphaCircle(Color color, int diameter, byte alpha = 128)
-        {
-            var result = new Bitmap(diameter, diameter);
-
-            using (var g = Graphics.FromImage(result))
-            using (var brush = new SolidBrush(Color.FromArgb(alpha, color)))
-                g.FillEllipse(brush, 0, 0, diameter, diameter);
-
-            return result;
-        }
     }
 }

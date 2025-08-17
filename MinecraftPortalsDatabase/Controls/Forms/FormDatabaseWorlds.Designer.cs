@@ -174,7 +174,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this._dataGridView.EnableHeadersVisualStyles = false;
-            this._dataGridView.Location = new System.Drawing.Point(0, 43);
+            this._dataGridView.Location = new System.Drawing.Point(90, 43);
             this._dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this._dataGridView.MultiSelect = false;
             this._dataGridView.Name = "_dataGridView";
@@ -189,7 +189,7 @@
             this._dataGridView.RowHeadersVisible = false;
             this._dataGridView.RowTemplate.Height = 100;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(616, 167);
+            this._dataGridView.Size = new System.Drawing.Size(432, 167);
             this._dataGridView.TabIndex = 7;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewCellClick);
             this._dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnOpenClick);

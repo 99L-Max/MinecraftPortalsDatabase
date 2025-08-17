@@ -199,7 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.Obsidian;
+            this.BackgroundImage = global::MinecraftPortalsDatabase.Properties.Resources.End_Portal;
             this.CancelButton = this._btnClose;
             this.ClientSize = new System.Drawing.Size(630, 292);
             this.Controls.Add(this._btnClose);

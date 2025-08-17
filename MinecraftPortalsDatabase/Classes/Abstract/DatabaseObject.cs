@@ -2,7 +2,7 @@
 {
     abstract class DatabaseObject
     {
-        public static readonly string ForbiddenCharacters = "\\/:*?\"<>|";
+        public const string ForbiddenCharacters = "\\/:*?\"<>|";
 
         public string Name { get; set; }
 

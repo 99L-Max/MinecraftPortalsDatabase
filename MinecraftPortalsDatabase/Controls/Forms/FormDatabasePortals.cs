@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Windows.Forms;
 
 namespace MinecraftPortalsDatabase
@@ -10,10 +9,10 @@ namespace MinecraftPortalsDatabase
     partial class FormDatabasePortals : Form
     {
         private readonly DataTable _dataTable = new DataTable();
-        private readonly DataGridViewRowFilter _filter;
         private readonly FormPortalSettings _formPortalSettings = new FormPortalSettings();
         private readonly FormNearestPortal _formNearestPortal = new FormNearestPortal();
         private readonly PortalsCollection _portals;
+        private readonly DataGridViewColumnFilter _filter;
 
         private bool _selectionChanged;
 
@@ -23,7 +22,7 @@ namespace MinecraftPortalsDatabase
         {
             InitializeComponent();
             _portals = new PortalsCollection(worldName);
-            _filter = new DataGridViewRowFilter(
+            _filter = new DataGridViewColumnFilter(
                 PortalsTableColumnNames.Name.ToString(),
                 PortalsTableColumnNames.BiomeOverworld.ToString(),
                 PortalsTableColumnNames.BiomeNether.ToString());

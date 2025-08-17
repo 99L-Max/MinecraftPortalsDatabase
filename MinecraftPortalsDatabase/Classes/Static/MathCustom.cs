@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace MinecraftPortalsDatabase
 {
@@ -30,6 +29,22 @@ namespace MinecraftPortalsDatabase
 
         public static float GetSquareDistance(Point3 p1, Point3 p2) =>
             Square(p1.X - p2.X) + Square(p1.Y - p2.Y) + Square(p1.Z - p2.Z);
+
+        public static float GetDifferenceMinMax(params MapPoint[] points)
+        {
+            var min = float.MaxValue;
+            var max = float.MinValue;
+
+            foreach (var p in points)
+            {
+                if (p.Location.X < min) min = p.Location.X;
+                if (p.Location.Y < min) min = p.Location.Y;
+                if (p.Location.X > max) max = p.Location.X;
+                if (p.Location.Y > max) max = p.Location.Y;
+            }
+
+            return max - min;
+        }
 
         public static Portal GetNearestPortal(Dimension dimension, Point3 location, params Portal[] portals)
         {

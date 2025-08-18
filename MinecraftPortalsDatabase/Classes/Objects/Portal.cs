@@ -15,7 +15,7 @@ namespace MinecraftPortalsDatabase
         public override string ToString() =>
             $"{Name}{Environment.NewLine}" +
             $"Overworld: {LocationOverworld} ({BiomeOverworld}){Environment.NewLine}" +
-            $"Nether: {LocationNether} ({BiomeNether})";
+            $"The Nether: {LocationNether} ({BiomeNether})";
 
         public override object[] ToDataGridViewRow() =>
             new object[] { Name, BiomeOverworld, BiomeNether, LocationOverworld, LocationNether };

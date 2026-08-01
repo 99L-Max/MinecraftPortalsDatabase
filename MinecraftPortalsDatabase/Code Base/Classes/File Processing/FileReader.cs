@@ -18,9 +18,10 @@ namespace MinecraftPortalsDatabase
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     using (Bitmap openedImage = new Bitmap(dialog.FileName))
+                    {
                         image = new Bitmap(openedImage);
-
-                    return true;
+                        return true;
+                    }
                 }
                 else
                 {
@@ -48,10 +49,12 @@ namespace MinecraftPortalsDatabase
         {
             try
             {
-                string filename = DatabaseDirectory.GetPathToWorldIcon(worldName);
+                var filename = DatabaseDirectory.GetPathToWorldIcon(worldName);
 
                 using (Bitmap image = new Bitmap(filename))
+                {
                     return new Bitmap(image);
+                }
             }
             catch (Exception)
             {
@@ -62,6 +65,18 @@ namespace MinecraftPortalsDatabase
         public static Dictionary<TKey, TValue> GetDictionary<TKey, TValue>(byte[] jsonResource)
         {
             return JsonConvert.DeserializeObject<Dictionary<TKey, TValue>>(Encoding.UTF8.GetString(jsonResource));
+        }
+
+        public static Dictionary<Dimension, List<string>> GetBiomesFromFile(string filePath)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<Dictionary<Dimension, List<string>>>(File.ReadAllText(filePath));
+            }
+            catch (Exception)
+            {
+                return GetDictionary<Dimension, List<string>>(Resources.Dictionary_Biomes);
+            }
         }
     }
 }

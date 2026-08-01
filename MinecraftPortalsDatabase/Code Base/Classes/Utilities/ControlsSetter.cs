@@ -7,17 +7,19 @@ namespace MinecraftPortalsDatabase
 {
     static class ControlsSetter
     {
-        public static void SetComboBoxValues(ComboBox box, IEnumerable<object> objects)
+        public static void SetComboBoxValues(ComboBox box, IEnumerable<object> objects, string defaultEmptyValue = "NOT_FOUND")
         {
             box.Items.Clear();
-            box.Items.AddRange(objects.ToArray());
+            box.Items.AddRange(objects.Count() > 0 ? objects.ToArray() : new string[] { defaultEmptyValue });
             box.SelectedIndex = 0;
         }
 
         public static void SetNumericUpDownBounds(decimal min, decimal max, params NumericUpDown[] nums)
         {
             foreach (NumericUpDown num in nums)
+            {
                 (num.Minimum, num.Maximum) = (min, max);
+            }
         }
 
         public static void SetColumns<TKey, TValue>(DataGridView dataGridView, DataTable dataTable, Dictionary<TKey, TValue> columnsValues)

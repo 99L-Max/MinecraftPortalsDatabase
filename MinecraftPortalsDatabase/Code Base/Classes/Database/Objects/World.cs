@@ -4,10 +4,14 @@
     {
         public World(string name) : base(name) { }
 
-        public override object[] ToDataGridViewRow() =>
-            new object[] { FileReader.ReadIconWorld(Name), Name };
+        public override object[] ToDataGridViewRow()
+        {
+            return new object[] { FileReader.ReadIconWorld(Name), Name };
+        }
 
-        public override DatabaseObject Clone() =>
-            new World(Name);
+        public override DatabaseObject Clone()
+        {
+            return new World(Name);
+        }
     }
 }

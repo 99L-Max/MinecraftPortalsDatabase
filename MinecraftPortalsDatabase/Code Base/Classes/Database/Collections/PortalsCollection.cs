@@ -9,14 +9,15 @@ namespace MinecraftPortalsDatabase
         public PortalsCollection(string worldName) : base($@"{worldName}\Portals")
         {
             if (FileReader.TryReadArrayFromJson(PathToFile, out Portal[] portals))
+            {
                 SetCollection(portals);
+            }
         }
 
         public string GetStringNearestPortal(HashSet<string> namesPortals, Dimension dimension, Point3 location)
         {
             var portals = DatabaseObjects.Where(data => namesPortals.Contains(data.Key)).Select(data => data.Value as Portal);
             var nearestPortal = MathCustom.GetNearestPortal(dimension, location, portals);
-
             return nearestPortal.ToString();
         }
 

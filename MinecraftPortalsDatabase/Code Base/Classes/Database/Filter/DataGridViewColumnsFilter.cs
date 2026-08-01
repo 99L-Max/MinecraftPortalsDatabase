@@ -26,7 +26,9 @@ namespace MinecraftPortalsDatabase
         public void UpdateValues(string columnName, IEnumerable<string> values)
         {
             if (_filters.ContainsKey(columnName))
+            {
                 _filters[columnName].UpdateOptions(values);
+            }
         }
 
         public void ShowFormFilter(string columnName)
@@ -45,7 +47,9 @@ namespace MinecraftPortalsDatabase
         public void Clear()
         {
             foreach (ColumnFilter filter in _filters.Values)
+            {
                 filter.Clear();
+            }
 
             Filter = string.Empty;
             FilterChanged?.Invoke(string.Empty);

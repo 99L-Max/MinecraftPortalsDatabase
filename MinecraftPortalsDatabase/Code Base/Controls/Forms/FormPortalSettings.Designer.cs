@@ -185,6 +185,7 @@
             this._cmbBiomeOverworld.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._cmbBiomeOverworld.ForeColor = System.Drawing.Color.White;
             this._cmbBiomeOverworld.FormattingEnabled = true;
+            this._cmbBiomeOverworld.IntegralHeight = false;
             this._cmbBiomeOverworld.Location = new System.Drawing.Point(101, 221);
             this._cmbBiomeOverworld.Margin = new System.Windows.Forms.Padding(4);
             this._cmbBiomeOverworld.Name = "_cmbBiomeOverworld";
@@ -231,6 +232,7 @@
             this._cmbBiomeNether.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this._cmbBiomeNether.ForeColor = System.Drawing.Color.White;
             this._cmbBiomeNether.FormattingEnabled = true;
+            this._cmbBiomeNether.IntegralHeight = false;
             this._cmbBiomeNether.Location = new System.Drawing.Point(391, 221);
             this._cmbBiomeNether.Margin = new System.Windows.Forms.Padding(4);
             this._cmbBiomeNether.Name = "_cmbBiomeNether";
@@ -392,6 +394,7 @@
             this.Controls.Add(this._btnApply);
             this.Controls.Add(this.label4);
             this.Controls.Add(this._txtName);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);

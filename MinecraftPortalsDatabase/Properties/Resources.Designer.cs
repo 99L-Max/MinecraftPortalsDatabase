@@ -83,6 +83,16 @@ namespace MinecraftPortalsDatabase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Dictionary_Biomes {
+            get {
+                object obj = ResourceManager.GetObject("Dictionary_Biomes", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Dictionary_PortalsTableColumnNames {
             get {
                 object obj = ResourceManager.GetObject("Dictionary_PortalsTableColumnNames", resourceCulture);

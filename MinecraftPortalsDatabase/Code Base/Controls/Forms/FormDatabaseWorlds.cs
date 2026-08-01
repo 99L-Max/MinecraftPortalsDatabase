@@ -15,7 +15,9 @@ namespace MinecraftPortalsDatabase
             InitializeComponent();
 
             foreach (var dataObject in _worlds.ToDataGridView())
+            {
                 _dataGridView.Rows.Add(dataObject);
+            }
 
             OnDataGridViewSelectionChanged(_dataGridView, EventArgs.Empty);
         }
@@ -47,7 +49,9 @@ namespace MinecraftPortalsDatabase
                     var items = world.ToDataGridViewRow();
 
                     for (int i = 0; i < items.Length && i < row.Cells.Count; i++)
+                    {
                         row.Cells[i].Value = items[i];
+                    }
                 }
             }
             else if (_worlds.TryAdd(world))
@@ -63,12 +67,12 @@ namespace MinecraftPortalsDatabase
         }
 
         private void OnOpenClick(object sender, EventArgs e)
-        { 
+        {
             WorldSelected?.Invoke(this, $"{_dataGridView.SelectedRows[0].Cells[$"{WorldsTableColumnNames.WorldName}"].Value}");
         }
 
         private void OnAddClick(object sender, EventArgs e)
-        { 
+        {
             ShowFormWorldSettings();
         }
 
@@ -102,7 +106,9 @@ namespace MinecraftPortalsDatabase
         private void OnDataGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (_selectionChanged == false)
+            {
                 _dataGridView.ClearSelection();
+            }
 
             _selectionChanged = !_selectionChanged;
         }

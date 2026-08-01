@@ -35,13 +35,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDatabasePortals));
             this._dataGridView = new System.Windows.Forms.DataGridView();
             this._tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this._btnSelectAnotherWorld = new System.Windows.Forms.Button();
             this._btnAdd = new System.Windows.Forms.Button();
             this._btnRemove = new System.Windows.Forms.Button();
             this._btnEdit = new System.Windows.Forms.Button();
             this._btnNearestPortal = new System.Windows.Forms.Button();
-            this._btnClearFilters = new System.Windows.Forms.Button();
             this._btnMap = new System.Windows.Forms.Button();
+            this._btnSelectAnotherWorld = new System.Windows.Forms.Button();
+            this._btnClearFilters = new System.Windows.Forms.Button();
+            this._btnBiomeSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
             this._tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +114,7 @@
             this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this._tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanel.Controls.Add(this._btnBiomeSettings, 3, 1);
             this._tableLayoutPanel.Controls.Add(this._btnAdd, 0, 0);
             this._tableLayoutPanel.Controls.Add(this._btnRemove, 2, 0);
             this._tableLayoutPanel.Controls.Add(this._btnEdit, 1, 0);
@@ -128,23 +130,6 @@
             this._tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this._tableLayoutPanel.Size = new System.Drawing.Size(853, 121);
             this._tableLayoutPanel.TabIndex = 5;
-            // 
-            // _btnSelectAnotherWorld
-            // 
-            this._btnSelectAnotherWorld.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnSelectAnotherWorld.BackgroundImage")));
-            this._btnSelectAnotherWorld.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnSelectAnotherWorld.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._btnSelectAnotherWorld.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this._btnSelectAnotherWorld.ForeColor = System.Drawing.Color.White;
-            this._btnSelectAnotherWorld.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnSelectAnotherWorld.Location = new System.Drawing.Point(643, 4);
-            this._btnSelectAnotherWorld.Margin = new System.Windows.Forms.Padding(4);
-            this._btnSelectAnotherWorld.Name = "_btnSelectAnotherWorld";
-            this._btnSelectAnotherWorld.Size = new System.Drawing.Size(206, 52);
-            this._btnSelectAnotherWorld.TabIndex = 6;
-            this._btnSelectAnotherWorld.Text = "Select another world";
-            this._btnSelectAnotherWorld.UseVisualStyleBackColor = true;
-            this._btnSelectAnotherWorld.Click += new System.EventHandler(this.OnSelectAnotherWorldClick);
             // 
             // _btnAdd
             // 
@@ -214,6 +199,40 @@
             this._btnNearestPortal.UseVisualStyleBackColor = true;
             this._btnNearestPortal.Click += new System.EventHandler(this.OnNearestPortalClick);
             // 
+            // _btnMap
+            // 
+            this._btnMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnMap.BackgroundImage")));
+            this._btnMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._btnMap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._btnMap.ForeColor = System.Drawing.Color.White;
+            this._btnMap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._btnMap.Location = new System.Drawing.Point(217, 64);
+            this._btnMap.Margin = new System.Windows.Forms.Padding(4);
+            this._btnMap.Name = "_btnMap";
+            this._btnMap.Size = new System.Drawing.Size(205, 53);
+            this._btnMap.TabIndex = 7;
+            this._btnMap.Text = "Map";
+            this._btnMap.UseVisualStyleBackColor = true;
+            this._btnMap.Click += new System.EventHandler(this.OnMapClick);
+            // 
+            // _btnSelectAnotherWorld
+            // 
+            this._btnSelectAnotherWorld.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnSelectAnotherWorld.BackgroundImage")));
+            this._btnSelectAnotherWorld.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnSelectAnotherWorld.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._btnSelectAnotherWorld.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._btnSelectAnotherWorld.ForeColor = System.Drawing.Color.White;
+            this._btnSelectAnotherWorld.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._btnSelectAnotherWorld.Location = new System.Drawing.Point(643, 4);
+            this._btnSelectAnotherWorld.Margin = new System.Windows.Forms.Padding(4);
+            this._btnSelectAnotherWorld.Name = "_btnSelectAnotherWorld";
+            this._btnSelectAnotherWorld.Size = new System.Drawing.Size(206, 52);
+            this._btnSelectAnotherWorld.TabIndex = 6;
+            this._btnSelectAnotherWorld.Text = "Select another world";
+            this._btnSelectAnotherWorld.UseVisualStyleBackColor = true;
+            this._btnSelectAnotherWorld.Click += new System.EventHandler(this.OnSelectAnotherWorldClick);
+            // 
             // _btnClearFilters
             // 
             this._btnClearFilters.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnClearFilters.BackgroundImage")));
@@ -232,22 +251,22 @@
             this._btnClearFilters.UseVisualStyleBackColor = true;
             this._btnClearFilters.Click += new System.EventHandler(this.OnClearFiltersClick);
             // 
-            // _btnMap
+            // _btnBiomeSettings
             // 
-            this._btnMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnMap.BackgroundImage")));
-            this._btnMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._btnMap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this._btnMap.ForeColor = System.Drawing.Color.White;
-            this._btnMap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnMap.Location = new System.Drawing.Point(217, 64);
-            this._btnMap.Margin = new System.Windows.Forms.Padding(4);
-            this._btnMap.Name = "_btnMap";
-            this._btnMap.Size = new System.Drawing.Size(205, 53);
-            this._btnMap.TabIndex = 7;
-            this._btnMap.Text = "Map";
-            this._btnMap.UseVisualStyleBackColor = true;
-            this._btnMap.Click += new System.EventHandler(this.OnMapClick);
+            this._btnBiomeSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btnBiomeSettings.BackgroundImage")));
+            this._btnBiomeSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnBiomeSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._btnBiomeSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this._btnBiomeSettings.ForeColor = System.Drawing.Color.White;
+            this._btnBiomeSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._btnBiomeSettings.Location = new System.Drawing.Point(643, 64);
+            this._btnBiomeSettings.Margin = new System.Windows.Forms.Padding(4);
+            this._btnBiomeSettings.Name = "_btnBiomeSettings";
+            this._btnBiomeSettings.Size = new System.Drawing.Size(206, 53);
+            this._btnBiomeSettings.TabIndex = 8;
+            this._btnBiomeSettings.Text = "Biome settings";
+            this._btnBiomeSettings.UseVisualStyleBackColor = true;
+            this._btnBiomeSettings.Click += new System.EventHandler(this.OnBiomeSettingsClick);
             // 
             // FormDatabasePortals
             // 
@@ -263,6 +282,7 @@
             this.Name = "FormDatabasePortals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Location of Portals";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
             this._tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -280,6 +300,7 @@
         private System.Windows.Forms.Button _btnClearFilters;
         private System.Windows.Forms.Button _btnSelectAnotherWorld;
         private System.Windows.Forms.Button _btnMap;
+        private System.Windows.Forms.Button _btnBiomeSettings;
     }
 }
 

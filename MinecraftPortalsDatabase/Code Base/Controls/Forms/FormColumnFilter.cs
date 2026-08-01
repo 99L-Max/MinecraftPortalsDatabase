@@ -12,7 +12,9 @@ namespace MinecraftPortalsDatabase
             InitializeComponent();
 
             foreach (var value in checkedValues.OrderBy(item => item.Key))
+            { 
                 _checkedListBox.Items.Add(value.Key, value.Value);
+            }
 
             ColumnName = columnName;
         }

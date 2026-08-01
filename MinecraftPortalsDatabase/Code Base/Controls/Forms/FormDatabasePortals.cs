@@ -10,10 +10,11 @@ namespace MinecraftPortalsDatabase
     partial class FormDatabasePortals : Form
     {
         private readonly DataTable _dataTable = new DataTable();
-        private readonly FormPortalSettings _formPortalSettings = new FormPortalSettings();
         private readonly FormNearestPortal _formNearestPortal = new FormNearestPortal();
+        private readonly FormPortalSettings _formPortalSettings = new FormPortalSettings();
         private readonly PortalsCollection _portals;
         private readonly DataGridViewColumnsFilter _filter;
+        private readonly Biomes _biomes = new Biomes();
 
         private bool _selectionChanged;
 
@@ -31,12 +32,17 @@ namespace MinecraftPortalsDatabase
             foreach (var portal in _portals.ToDataGridView())
                 _dataTable.Rows.Add(portal);
 
+            foreach (var dimention in EnumReader.GetEnumValues<Dimension>())
+                _formPortalSettings.SetBiomes(dimention, _biomes.GetNames(dimention));
+
             _filter.FilterChanged += OnFilterChanged;
             _formPortalSettings.PortalDataChanged += OnPortalDataChanged;
             _formNearestPortal.LocationSelected += _portals.GetStringNearestPortal;
 
             _formPortalSettings.FormClosing += OnFormDialogClosing;
             _formNearestPortal.FormClosing += OnFormDialogClosing;
+
+            _biomes.BiomesChanged += OnBiomesChanged;
 
             _formNearestPortal.SetNamesPortals(GetDataGridViewColumns(PortalsTableColumnNames.Name));
             _btnNearestPortal.Enabled = _btnMap.Enabled = !_portals.IsEmpty;
@@ -50,7 +56,9 @@ namespace MinecraftPortalsDatabase
         private IEnumerable<string> GetDataGridViewColumns(PortalsTableColumnNames column)
         {
             for (int i = 0; i < _dataGridView.RowCount; i++)
+            {
                 yield return _dataGridView.Rows[i].Cells[$"{column}"].Value.ToString();
+            }
         }
 
         private void ShowFormPortalSettings(bool isReplacementPortal)
@@ -62,7 +70,9 @@ namespace MinecraftPortalsDatabase
         private void UpdateFilterValues()
         {
             foreach (var column in _filter.FilterableColumns)
+            {
                 _filter.UpdateValues(column, _portals.GetColumn(_dataGridView.Columns[column].Index));
+            }
         }
 
         private void OnFormDialogClosing(object sender, FormClosingEventArgs e)
@@ -75,7 +85,7 @@ namespace MinecraftPortalsDatabase
         }
 
         private void OnAddClick(object sender, EventArgs e)
-        { 
+        {
             ShowFormPortalSettings(false);
         }
 
@@ -118,17 +128,17 @@ namespace MinecraftPortalsDatabase
         }
 
         private void OnNearestPortalClick(object sender, EventArgs e)
-        { 
+        {
             _formNearestPortal.ShowDialog();
         }
 
         private void OnClearFiltersClick(object sender, EventArgs e)
-        { 
+        {
             _filter.Clear();
         }
 
         private void OnSelectAnotherWorldClick(object sender, EventArgs e)
-        { 
+        {
             AnotherWorldSelecting?.Invoke();
         }
 
@@ -174,14 +184,16 @@ namespace MinecraftPortalsDatabase
         }
 
         private void OnDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        { 
+        {
             _filter.ShowFormFilter(_dataGridView.Columns[e.ColumnIndex].Name);
         }
 
         private void OnDataGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (_selectionChanged == false)
+            {
                 _dataGridView.ClearSelection();
+            }
 
             _selectionChanged = !_selectionChanged;
         }
@@ -191,6 +203,32 @@ namespace MinecraftPortalsDatabase
             _btnRemove.Enabled = _dataGridView.SelectedRows.Count > 0;
             _btnEdit.Enabled = _dataGridView.SelectedRows.Count == 1;
             _selectionChanged = true;
+        }
+
+        private void OnBiomesChanged(Dimension dimention)
+        {
+            _formPortalSettings.SetBiomes(dimention, _biomes.GetNames(dimention));
+        }
+
+        private void OnBiomeSettingsClick(object sender, EventArgs e)
+        {
+            new FormBiomeSettings(_biomes).ShowDialog();
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            _filter.FilterChanged -= OnFilterChanged;
+            _formPortalSettings.PortalDataChanged -= OnPortalDataChanged;
+            _formNearestPortal.LocationSelected -= _portals.GetStringNearestPortal;
+
+            _formPortalSettings.FormClosing -= OnFormDialogClosing;
+            _formNearestPortal.FormClosing -= OnFormDialogClosing;
+
+            _biomes.BiomesChanged -= OnBiomesChanged;
+
+            _formPortalSettings.Close();
+            _formNearestPortal.Close();
+            _dataTable.Dispose();
         }
     }
 }

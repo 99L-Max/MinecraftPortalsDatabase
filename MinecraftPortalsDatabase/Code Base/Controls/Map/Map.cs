@@ -73,7 +73,9 @@ namespace MinecraftPortalsDatabase
             e.Graphics.Clear(BackColor);
 
             foreach (var p in _points)
+            {
                 e.Graphics.DrawImage(p.Image, GetRectangleFOnScreen(p));
+            }
         }
 
         private void OnMouseDown(object sender, MouseEventArgs e)

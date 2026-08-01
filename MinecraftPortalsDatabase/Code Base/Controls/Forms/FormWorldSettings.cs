@@ -34,7 +34,9 @@ namespace MinecraftPortalsDatabase
         private void OnApplyClick(object sender, EventArgs e)
         {
             using (Bitmap icon = new Bitmap(_pbIcon.Image))
+            {
                 WorldDataChanged?.Invoke(this, new World(_txtName.Text), icon);
+            }
         }
 
         private void OnSelectIcon(object sender, EventArgs e)
@@ -63,7 +65,9 @@ namespace MinecraftPortalsDatabase
         private void OnIconPaint(object sender, PaintEventArgs e)
         {
             if (_isHovered)
+            {
                 e.Graphics.DrawRectangle(_penIconBorder, _pbIcon.ClientRectangle);
+            }
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)

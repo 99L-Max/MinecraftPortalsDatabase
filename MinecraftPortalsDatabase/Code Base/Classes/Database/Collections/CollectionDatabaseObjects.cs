@@ -27,7 +27,7 @@ namespace MinecraftPortalsDatabase
 
         public bool TryAdd(DatabaseObject dataObject)
         {
-            if (CheckDatabaseObject(dataObject))
+            if (IsDatabaseObjectCorrect(dataObject))
             {
                 DatabaseObjects.Add(dataObject.Name, dataObject);
                 return true;
@@ -54,7 +54,7 @@ namespace MinecraftPortalsDatabase
                 return true;
             }
 
-            if (CheckDatabaseObject(newObject))
+            if (IsDatabaseObjectCorrect(newObject))
             {
                 var pairs = DatabaseObjects.ToArray();
                 var index = Array.IndexOf(DatabaseObjects.Keys.ToArray(), nameOldObject);
@@ -90,10 +90,12 @@ namespace MinecraftPortalsDatabase
         protected void SetCollection(DatabaseObject[] databaseObjects)
         {
             if (databaseObjects != null)
+            {
                 DatabaseObjects = databaseObjects.ToDictionary(dataObject => dataObject.Name, dataObject => dataObject);
+            }
         }
 
-        private bool CheckDatabaseObject(DatabaseObject dataObject)
+        private bool IsDatabaseObjectCorrect(DatabaseObject dataObject)
         {
             if (dataObject == null)
             {
@@ -123,7 +125,7 @@ namespace MinecraftPortalsDatabase
         }
 
         private void ShowWarning(string text)
-        { 
+        {
             MessageBox.Show(text, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

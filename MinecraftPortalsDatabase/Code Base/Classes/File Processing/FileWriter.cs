@@ -8,20 +8,21 @@ namespace MinecraftPortalsDatabase
     static class FileWriter
     {
         public static void CreateWorldDirectory(string worldName)
-        { 
+        {
             Directory.CreateDirectory(DatabaseDirectory.GetPathToDirectory(worldName));
         }
 
         public static void RenameWorldDirectory(string oldWorldName, string newWorldName)
         {
             if (oldWorldName == newWorldName)
+            {
                 return;
+            }
 
             try
             {
-                string oldPath = DatabaseDirectory.GetPathToDirectory(oldWorldName);
-                string newPath = DatabaseDirectory.GetPathToDirectory(newWorldName);
-
+                var oldPath = DatabaseDirectory.GetPathToDirectory(oldWorldName);
+                var newPath = DatabaseDirectory.GetPathToDirectory(newWorldName);
                 Directory.Move(oldPath, newPath);
             }
             catch (Exception e)

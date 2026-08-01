@@ -12,7 +12,9 @@ namespace MinecraftPortalsDatabase
 
             using (var g = Graphics.FromImage(result))
             using (var icon = ToSquareImage(image))
+            {
                 g.DrawImage(icon, 0, 0, size, size);
+            }
 
             return result;
         }
@@ -23,7 +25,9 @@ namespace MinecraftPortalsDatabase
             var result = new Bitmap(size, size);
 
             using (var g = Graphics.FromImage(result))
+            {
                 g.DrawImage(image, -(image.Width - size >> 1), -(image.Height - size >> 1), image.Width, image.Height);
+            }
 
             return result;
         }
